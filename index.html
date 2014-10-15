@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt">
+    <meta charset="UTF-8">
+    <title>Metaplasmador</title>
+    <script src="js/regra.js"></script>
+    <script src="js/jquery-1.11.1.js"></script>
+</head>
+<body>
+    <input id="input" type="text" />
+    <button id="btn_aplicar" onclick="aplicarRegras()">Aplicar</button>
+    <div id="output">a</div>
+    <script>
+        function aplicarRegras() {
+            var input = $('input').val();
+            var regra1 = new Regra('d', '');
+            var regra2 = new Regra('xc', 'c')
+            var output = regra2.aplicar(regra1.aplicar(input));
+            $('#output').text(output);
+        }
+    </script>
+
+</body>
+</html>
