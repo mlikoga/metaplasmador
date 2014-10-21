@@ -3,19 +3,72 @@
 <head lang="pt">
     <meta charset="UTF-8">
     <title>Metaplasmador</title>
-    <script src="js/regra.js"></script>
-    <script src="js/jquery-1.11.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
-    <input id="input" type="text" />
-    <button id="btn_aplicar" onclick="aplicarRegras()">Aplicar</button>
-    <div id="output">a</div>
+
+    <!-- Navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">Project name</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <textarea id="regras">a > b&#13;&#10;p > v</textarea>
+        <input id="input" type="text" value="excaescere"/>
+        <button id="btn_aplicar" onclick="aplicarRegras()">Aplicar</button>
+        <div id="output">a</div>
+    </div>
+
+    <!-- Javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/regra.js"></script>
+    <script src="js/vendor/jquery-1.11.1.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+
     <script>
+        var regras = [];
+        function lerRegras() {
+            regras = [];
+            var regexSpaces = new RegExp(' ', 'g');
+            var lines = $('#regras').val().split('\n');
+            for (var i = 0; i < lines.length; i++) {
+                var parts = lines[i].replace(regexSpaces, '').split('>');
+                if (parts.length == 2) {
+                    regras.push(new Regra(parts[0], parts[1]));
+                }
+            }
+        }
         function aplicarRegras() {
+            lerRegras();
             var input = $('input').val();
-            var regra1 = new Regra('d', '');
-            var regra2 = new Regra('xc', 'c')
-            var output = regra2.aplicar(regra1.aplicar(input));
+            var output = input;
+            for (var i = 0; i < regras.length; i++) {
+                output = regras[i].aplicar(output);
+            }
             $('#output').text(output);
         }
     </script>
