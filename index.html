@@ -47,6 +47,22 @@
             <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         </div>
 
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Transformar</h3>
+            </div>
+            <div class="panel-body">
+                <div class="input-group">
+                    <input id="input" type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button id="btn_aplicar" class="btn btn-primary" type="button" onclick="aplicarRegras()">Transformar!</button>
+                            </span>
+                </div><!-- /input-group -->
+                <br />
+                <div id="output">Saída</div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
@@ -59,19 +75,12 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Transformar</h3>
+                        <h3 class="panel-title">Conjuntos</h3>
                     </div>
                     <div class="panel-body">
-                        <div class="input-group">
-                            <input id="input" type="text" class="form-control">
-                            <span class="input-group-btn">
-                                <button id="btn_aplicar" class="btn btn-primary" type="button" onclick="aplicarRegras()">Transformar!</button>
-                            </span>
-                        </div><!-- /input-group -->
-                        <br />
-                        <div id="output">Saída</div>
+                        <textarea id="conjuntos" class="form-control" rows="10">{V} = {a,e,i,o,u}&#13;&#10;</textarea>
                     </div>
                 </div>
             </div>
@@ -80,12 +89,14 @@
 
     <!-- Javascript -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/conjunto.js"></script>
     <script src="js/regra.js"></script>
     <script src="js/vendor/jquery-1.11.1.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
 
     <script>
         var regras = [];
+        var conjuntos = [];
         function lerRegras() {
             regras = [];
             var regexSpaces = new RegExp(' ', 'g');
@@ -96,6 +107,18 @@
                     regras.push(new Regra(parts[0], parts[1]));
                 } else if (parts.length == 1) {
                     regras.push(new Regra(parts[0], ''));
+                }
+            }
+        }
+        function lerConjuntos() {
+            conjuntos = [];
+            var regexSpaces = new RegExp('[ {}]', 'g');
+            var lines = $('#conjuntos').val().split('\n');
+            for (var i = 0; i < lines.length; i++) {
+                var parts = lines[i].replace(regexSpaces, '').split('=');
+                if (parts.length == 2) {
+                    var elements = parts[1].split(',');
+                    conjuntos.push(new Conjunto(parts[0], elements));
                 }
             }
         }
