@@ -44,7 +44,7 @@
     <div class="container" role="main">
         <div class="jumbotron">
             <h1>Bem-vindo ao Metaplasmador!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p>Transcritor automático Latim-português</p>
         </div>
 
         <div class="panel panel-primary">
@@ -131,6 +131,30 @@
             }
             $('#output').text(output);
         }
+
+        function getFileFromServer(url, doneCallback) {
+            var xhr;
+
+            xhr = new XMLHttpRequest();
+            xhr.onload = reqListener;
+            xhr.open("GET", url, true);
+            xhr.send();
+
+            function reqListener() {
+                doneCallback(this.status == 200 ? this.responseText : null);
+            }
+        }
+
+        function loadRegras() {
+            getFileFromServer("regras/regras.txt", function (text) {
+                if (text === null) {
+                    console.log('Erro ao ler arquivo.');
+                } else {
+                    $('#regras').val(text);
+                }
+            });
+        }
+        loadRegras();
     </script>
 
 </body>
