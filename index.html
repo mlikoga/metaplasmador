@@ -96,7 +96,7 @@
 
     <script>
         var regras = [];
-        var conjuntos = [];
+        var conjuntos = {};
         loadRegras();
 
 
@@ -114,18 +114,19 @@
             }
         }
         function lerConjuntos() {
-            conjuntos = [];
+            conjuntos = {};
             var regexSpaces = new RegExp('[ {}]', 'g');
             var lines = $('#conjuntos').val().split('\n');
             for (var i = 0; i < lines.length; i++) {
                 var parts = lines[i].replace(regexSpaces, '').split('=');
                 if (parts.length == 2) {
                     var elements = parts[1].split(',');
-                    conjuntos.push(new Conjunto(parts[0], elements));
+                    conjuntos[parts[0]] = elements;
                 }
             }
         }
         function aplicarRegras() {
+            lerConjuntos();
             lerRegras();
             var input = $('input').val();
             var output = input;
