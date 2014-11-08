@@ -29,7 +29,7 @@ Regra.prototype.aplicar = function (input) {
         var cjIdx = origemAux.search(Regra.CJ_START);
         while (cjIdx >= 0) {
             var cjIdx2 = origemAux.search(Regra.CJ_END);
-            var cjNome = origemAux.substring(cjIdx + 1, cjIdx2);
+            var cjNome = origemAux.slice(cjIdx + 1, cjIdx2);
             var cj = conjuntos[cjNome];
             var cjRegex = '' + cj;
             cjRegex = cjRegex.replace(new RegExp(',', 'g'), '');
@@ -54,13 +54,14 @@ Regra.prototype.aplicar = function (input) {
         var inputLeft = input; // input a ser lido
         var output = '';
         while (regexIdx >= 0) {
-            output += inputLeft.substring(0, regexIdx);
-            var match = inputLeft.match(regex)[0];
-            output += match.replace(patternCore, this.destino);
-            inputLeft = inputLeft.substr(regexIdx + match.length);
-            regexIdx = inputLeft.search(regex);
+            output += inputLeft.substring(0, regexIdx); // output recebe inicio do input
+            var match = inputLeft.match(regex)[0]; // pega trecho do input que interessa
+            match = match.slice(0, match.search(patternCore) + patternCore.length); // Corta contexto posterior
+            output += match.replace(patternCore, this.destino); // realiza a substituição
+            inputLeft = inputLeft.substr(regexIdx + match.length); // atualiza input a ser lido
+            regexIdx = inputLeft.search(regex); // procura se existem mais aplicações para a regra
         }
-        output += inputLeft;
+        output += inputLeft; // output recebe restante do input
         console.log(this + ": " + output);
         return output;
     }

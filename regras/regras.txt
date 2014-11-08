@@ -1,6 +1,7 @@
 i > e
 u > o
 t > d
-m# > 
+m# >
 c{V} > k
 {V}s > z
+{V}ll{V} > l
