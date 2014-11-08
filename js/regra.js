@@ -10,7 +10,7 @@ Regra.CJ_END   = '\}';
 
 Regra.prototype.aplicar = function (input) {
     var patternPrefix = '';
-    var patternCore = '';
+    var patternCore;
     var patternSuffix = '';
     var origemAux = this.origem;
 
