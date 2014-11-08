@@ -91,6 +91,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/conjunto.js"></script>
     <script src="js/regra.js"></script>
+    <script src="js/fileutils.js"></script>
     <script src="js/vendor/jquery-1.11.1.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
 
@@ -129,24 +130,12 @@
             lerConjuntos();
             lerRegras();
             var input = $('input').val();
+            console.log('Input: ' + input);
             var output = input;
             for (var i = 0; i < regras.length; i++) {
                 output = regras[i].aplicar(output);
             }
             $('#output').text(output);
-        }
-
-        function getFileFromServer(url, doneCallback) {
-            var xhr;
-
-            xhr = new XMLHttpRequest();
-            xhr.onload = reqListener;
-            xhr.open("GET", url, true);
-            xhr.send();
-
-            function reqListener() {
-                doneCallback(this.status == 200 ? this.responseText : null);
-            }
         }
 
         function loadRegras() {

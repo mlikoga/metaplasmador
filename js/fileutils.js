@@ -1,0 +1,16 @@
+/**
+ * Created by MLK on 08/11/2014.
+ */
+
+function getFileFromServer(url, doneCallback) {
+    var xhr;
+
+    xhr = new XMLHttpRequest();
+    xhr.onload = reqListener;
+    xhr.open("GET", url, true);
+    xhr.send();
+
+    function reqListener() {
+        doneCallback(this.status == 200 ? this.responseText : null);
+    }
+}

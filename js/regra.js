@@ -27,21 +27,50 @@ Regra.prototype.aplicar = function (input) {
     // Conjuntos
     if (typeof conjuntos !== 'undefined') {
         var cjIdx = origemAux.search(Regra.CJ_START);
-        while (cjIdx > 0) {
+        while (cjIdx >= 0) {
             var cjIdx2 = origemAux.search(Regra.CJ_END);
             var cjNome = origemAux.substring(cjIdx + 1, cjIdx2);
             var cj = conjuntos[cjNome];
-            origemAux = origemAux.substr(cjIdx2 + 2);
             var cjRegex = '' + cj;
             cjRegex = cjRegex.replace(new RegExp(',', 'g'), '');
-            patternPrefix += '[' + cjRegex + ']';
+            origemAux = origemAux.cut(cjIdx, cjIdx2+1);
+
+            if (cjIdx == 0) { // Conjunto está antes
+                patternPrefix += '[' + cjRegex + ']';
+            } else {
+                patternSuffix += '[' + cjRegex + ']';
+            }
+            cjIdx = origemAux.search(Regra.CJ_START);
         }
     }
 
     // O que sobrou da origem é o core
     patternCore = origemAux;
-    var regex = new RegExp(patternPrefix + patternCore + patternSuffix, 'g');
-    console.log(regex);
-    var output = input.replace(regex, this.destino);
-    return output;
-}
+    var regex = new RegExp(patternPrefix + patternCore + patternSuffix, 'i');
+
+    // Substituição
+    var regexIdx = input.search(regex);
+    if (regexIdx >= 0) { // Verifica se essa regra se aplica ou não
+        var inputLeft = input; // input a ser lido
+        var output = '';
+        while (regexIdx >= 0) {
+            output += inputLeft.substring(0, regexIdx);
+            var match = inputLeft.match(regex)[0];
+            output += match.replace(patternCore, this.destino);
+            inputLeft = inputLeft.substr(regexIdx + match.length);
+            regexIdx = inputLeft.search(regex);
+        }
+        output += inputLeft;
+        console.log(this + ": " + output);
+        return output;
+    }
+    return input;
+};
+
+Regra.prototype.toString = function() {
+    return this.origem + " > " + this.destino;
+};
+
+String.prototype.cut= function(i0, i1) {
+    return this.substring(0, i0)+this.substring(i1);
+};
