@@ -46,7 +46,7 @@ Regra.prototype.aplicar = function (input) {
 
     // O que sobrou da origem é o core
     patternCore = origemAux;
-    var regex = new RegExp(patternPrefix + patternCore + patternSuffix, 'i');
+    var regex = new RegExp(patternPrefix + patternCore + patternSuffix);
 
     // Substituição
     var regexIdx = input.search(regex);

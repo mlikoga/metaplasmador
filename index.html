@@ -128,7 +128,7 @@
         function aplicarRegras() {
             lerConjuntos();
             lerRegras();
-            var input = $('input').val();
+            var input = $('input').val().trim().toLowerCase();
             console.log('Input: ' + input);
             var output = input;
             for (var i = 0; i < regras.length; i++) {
