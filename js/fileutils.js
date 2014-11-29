@@ -2,7 +2,7 @@
  * Created by MLK on 08/11/2014.
  */
 
-function getFileFromServer(url, doneCallback) {
+function getFileFromServer(url, doneCallback, doneCallbackArgs) {
     var xhr;
 
     xhr = new XMLHttpRequest();
@@ -11,6 +11,6 @@ function getFileFromServer(url, doneCallback) {
     xhr.send();
 
     function reqListener() {
-        doneCallback(this.status == 200 ? this.responseText : null);
+        doneCallback(this.status == 200 ? this.responseText : null, doneCallbackArgs);
     }
 }

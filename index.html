@@ -63,6 +63,21 @@
             </div>
         </div>
 
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#s0" data-toggle="tab">S0</a></li>
+            <li><a href="#s1" data-toggle="tab">S1</a></li>
+        </ul>
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="s0">
+                <textarea class="form-control" rows="10">s0</textarea>
+            </div>
+            <div class="tab-pane" id="s1">
+                <textarea class="form-control" rows="10">s1</textarea>
+            </div>
+        </div>
+
+        <p>&nbsp;</p>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
@@ -96,24 +111,42 @@
     <script src="js/vendor/bootstrap.min.js"></script>
 
     <script>
-        var regras = [];
-        var conjuntos = {};
+        var sincronias = []; // array de array de regras
+        var conjuntos = {}; // mapa nome -> elementos
+        const numSincronias = 2;
         loadRegras();
 
-
-        function lerRegras() {
-            regras = [];
-            var regexSpaces = new RegExp(' ', 'g');
-            var lines = $('#regras').val().split('\n');
-            for (var i = 0; i < lines.length; i++) {
-                var parts = lines[i].replace(regexSpaces, '').split('>');
-                if (parts.length == 2) {
-                    regras.push(new Regra(parts[0], parts[1]));
-                } else if (parts.length == 1) {
-                    regras.push(new Regra(parts[0], ''));
-                }
+        function loadRegras() {
+            for (var i = 0 ; i < numSincronias; i++) {
+                var sincroniaId = "s" + i;
+                getFileFromServer("regras/" + sincroniaId + ".txt", function (text, id) {
+                    if (text === null) {
+                        console.log('Erro ao ler arquivo.');
+                    } else {
+                        $('#' + id + '> textarea').val(text);
+                    }
+                }, sincroniaId);
             }
         }
+
+        function lerRegras() {
+            for (var i = 0 ; i < numSincronias; i++) {
+                var sincroniaId = "s" + i;
+                var regras = [];
+                var regexSpaces = new RegExp(' ', 'g');
+                var lines = $('#' + sincroniaId + '> textarea').val().split('\n');
+                for (var j = 0; j < lines.length; j++) {
+                    var parts = lines[j].replace(regexSpaces, '').split('>');
+                    if (parts.length == 2) {
+                        regras.push(new Regra(parts[0], parts[1]));
+                    } else if (parts.length == 1) {
+                        regras.push(new Regra(parts[0], ''));
+                    }
+                }
+                sincronias.push(regras);
+            }
+        }
+
         function lerConjuntos() {
             conjuntos = {};
             var regexSpaces = new RegExp('[ {}]', 'g');
@@ -125,27 +158,25 @@
                 }
             }
         }
+
         function aplicarRegras() {
             lerConjuntos();
             lerRegras();
             var input = $('input').val().trim().toLowerCase();
             console.log('Input: ' + input);
             var output = input;
-            for (var i = 0; i < regras.length; i++) {
-                output = regras[i].aplicar(output);
+            var fullOutput = input;
+            for (var i = 0; i < sincronias.length; i++) {
+                var regras = sincronias[i];
+                for (var j = 0; j < regras.length; j++) {
+                    output = regras[j].aplicar(output);
+                }
+                fullOutput = fullOutput.concat(' > ',output);
             }
-            $('#output').text(output);
+            $('#output').text(fullOutput);
         }
 
-        function loadRegras() {
-            getFileFromServer("regras/regras.txt", function (text) {
-                if (text === null) {
-                    console.log('Erro ao ler arquivo.');
-                } else {
-                    $('#regras').val(text);
-                }
-            });
-        }
+
 
     </script>
 
