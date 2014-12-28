@@ -41,6 +41,17 @@ QUnit.test( "Regra comeco e fim # #et# > e", function( assert ) {
     assert.equal( regra.aplicar("et"), "e" );
 });
 
+QUnit.test( "2 Regra ambiguas i > e; i > u", function( assert ) {
+    var regra1 = new Regra("i","e");
+    var regra2 = new Regra("i","u");
+    var regraAmbigua = new RegraAmbigua([regra1, regra2]);
+    assert.equal( regraAmbigua.aplicar("pe"), "pe" );
+    assert.ok( regraAmbigua.aplicar("pi").constructor === Array);
+    assert.equal( regraAmbigua.aplicar("pi").length, 2);
+    assert.equal( regraAmbigua.aplicar("pi")[0], "pe");
+    assert.equal( regraAmbigua.aplicar("pi")[1], "pu");
+});
+
 QUnit.module("Conjuntos", {
     setup: function() {
         conjuntos = {"V" : "a,e,i,o,u"}; // Sem var para ser global
@@ -68,3 +79,5 @@ QUnit.test( "Regra contexto {V}ll{V} > ", function( assert ) {
     assert.equal( regra.aplicar("llama"), "llama" );
     assert.equal( regra.aplicar("cllama"), "cllama" );
 });
+
+

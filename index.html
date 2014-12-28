@@ -106,6 +106,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/conjunto.js"></script>
     <script src="js/regra.js"></script>
+    <script src="js/regra-ambigua.js"></script>
     <script src="js/fileutils.js"></script>
     <script src="js/vendor/jquery-1.11.1.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
@@ -130,17 +131,33 @@
         }
 
         function lerRegras() {
+            sincronias = [];
             for (var i = 0 ; i < numSincronias; i++) {
                 var sincroniaId = "s" + i;
-                var regras = [];
+                var mapaRegras = {}; // key: origem da regra; value: array de regras
                 var regexSpaces = new RegExp(' ', 'g');
                 var lines = $('#' + sincroniaId + '> textarea').val().split('\n');
                 for (var j = 0; j < lines.length; j++) {
-                    var parts = lines[j].replace(regexSpaces, '').split('>');
+                    var parts = lines[j].replace(regexSpaces, '').split('>'); // Trim spaces
+                    var novaRegra;
                     if (parts.length == 2) {
-                        regras.push(new Regra(parts[0], parts[1]));
+                        novaRegra = new Regra(parts[0], parts[1]);
                     } else if (parts.length == 1) {
-                        regras.push(new Regra(parts[0], ''));
+                        novaRegra = new Regra(parts[0], '');
+                    }
+                    if (novaRegra.origem in mapaRegras) {
+                        mapaRegras[novaRegra.origem].push(novaRegra); // Adiciona no array
+                    } else {
+                        mapaRegras[novaRegra.origem] = [ novaRegra ]; // Cria o array
+                    }
+                }
+                var regras = [];
+                for (var key in mapaRegras) {
+                    // Verifica se existem regras ambiguas
+                    if (mapaRegras[key].length > 1) {
+                        regras.push(new RegraAmbigua(mapaRegras[key]));
+                    } else {
+                        regras.push(mapaRegras[key][0]);
                     }
                 }
                 sincronias.push(regras);
@@ -164,16 +181,38 @@
             lerRegras();
             var input = $('input').val().trim().toLowerCase();
             console.log('Input: ' + input);
-            var output = input;
-            var fullOutput = input;
-            for (var i = 0; i < sincronias.length; i++) {
-                var regras = sincronias[i];
-                for (var j = 0; j < regras.length; j++) {
-                    output = regras[j].aplicar(output);
+            var lastOutputs = [input];
+            var fullOutputs = [input];
+            for (var s = 0; s < sincronias.length; s++) {
+                var regras = sincronias[s];
+                // Auxliliares para não perder o controle da iteração 'i', pois os vetores mudam de tamanho.
+                var auxOutputs = [];
+                var auxFullOutputs = [];
+                for (var i = 0; i < lastOutputs.length; i++) {
+                    var inputAtual = [ lastOutputs[i] ];
+                    for (var j = 0; j < regras.length; j++) {
+                        var auxInputAtual = [];
+                        for (var k = 0; k < inputAtual.length; k++) {
+                            var regraOutputs = regras[j].aplicar(inputAtual[k]);
+                            auxInputAtual = auxInputAtual.concat(regraOutputs);
+                        }
+                        inputAtual = auxInputAtual;
+                    }
+
+                    auxOutputs = auxOutputs.concat(inputAtual);
+                    for (var k = 0; k < inputAtual.length; k++) {
+                        auxFullOutputs.push(fullOutputs[i].concat(' > ', inputAtual[k]));
+                    }
                 }
-                fullOutput = fullOutput.concat(' > ',output);
+                lastOutputs = auxOutputs;
+                fullOutputs = auxFullOutputs;
+            }
+            var fullOutput = '';
+            for (var k = 0; k < fullOutputs.length; k++) {
+                fullOutput += fullOutputs[k] + '\n';
             }
             $('#output').text(fullOutput);
+            $('#output').html($('#output').html().replace(/\n/g,'<br/>'));
         }
 
 

@@ -1,3 +1,4 @@
 ph{V} > f
+ph{V} > ph
 {V}s > z
 {V}ll{V} > l
