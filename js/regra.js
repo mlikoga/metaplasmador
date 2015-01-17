@@ -25,12 +25,12 @@ Regra.prototype.aplicar = function (input) {
     }
 
     // Conjuntos
-    if (typeof conjuntos !== 'undefined') {
+    if (typeof _conjuntos !== 'undefined') {
         var cjIdx = origemAux.search(Regra.CJ_START);
         while (cjIdx >= 0) {
             var cjIdx2 = origemAux.search(Regra.CJ_END);
             var cjNome = origemAux.slice(cjIdx + 1, cjIdx2);
-            var cj = conjuntos[cjNome];
+            var cj = _conjuntos[cjNome];
             var cjRegex = '' + cj;
             cjRegex = cjRegex.replace(new RegExp(',', 'g'), '');
             origemAux = origemAux.cut(cjIdx, cjIdx2+1);

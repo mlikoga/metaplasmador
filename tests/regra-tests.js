@@ -54,7 +54,7 @@ QUnit.test( "2 Regra ambiguas i > e; i > u", function( assert ) {
 
 QUnit.module("Conjuntos", {
     setup: function() {
-        conjuntos = {"V" : "a,e,i,o,u"}; // Sem var para ser global
+        _conjuntos = {"V" : "a,e,i,o,u"}; // Sem var para ser global
     }
 });
 

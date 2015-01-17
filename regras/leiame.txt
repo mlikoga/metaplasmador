@@ -1,0 +1,6 @@
+- Podem haver 2 ou mais regras com mesmos símbolos de origem mas diferentes resultados. Nesse caso, as duas opções de saída são apresentadas.
+- Regras tem ordem de preferência de cima para baixo. Então, pode se criar duas regras com mesma origem principal, mas contextos diferentes.
+Nesse caso, o contexto mais específico deve ficar em cima. Exemplo:
+  1. pl{V} -> ch
+  2. pl -> x
+
