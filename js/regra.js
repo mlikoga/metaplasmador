@@ -1,16 +1,20 @@
+// Classe Cadeia
+function Cadeia(str) {
+    this.strOriginal = str;
+    this.str = str;
+    this.index = 0;
+}
+
+Cadeia.prototype.toString = function() {
+    return this.str;
+};
+
 // Classe Regra
 function Regra(origem, destino) {
     this.origem = origem;
     this.destino = destino;
-}
 
-Regra.EMPTY_CHAR = '#';
-Regra.CJ_START = '\{';
-Regra.CJ_END   = '\}';
-
-Regra.prototype.aplicar = function (input) {
     var patternPrefix = '';
-    var patternCore;
     var patternSuffix = '';
     var origemAux = this.origem;
 
@@ -45,23 +49,44 @@ Regra.prototype.aplicar = function (input) {
     }
 
     // O que sobrou da origem é o core
-    patternCore = origemAux;
-    var regex = new RegExp(patternPrefix + patternCore + patternSuffix);
+    this.patternCore = origemAux;
+    this.regex = new RegExp(patternPrefix + this.patternCore + patternSuffix);
+}
+
+Regra.EMPTY_CHAR = '#';
+Regra.CJ_START = '\{';
+Regra.CJ_END   = '\}';
+
+Regra.prototype.verificar = function (input) {
+    var auxInput = input.strOriginal;
+
+    var regexIdx = auxInput.search(this.regex);
+    if (regexIdx >= 0) {
+        var match = auxInput.match(this.regex)[0];
+        var coreIdx = match.search(this.patternCore);
+        if (regexIdx + coreIdx == input.index) {
+            return true;
+        }
+    }
+    return false;
+}
+
+Regra.prototype.aplicar = function (input) {
 
     // Substituição
-    var regexIdx = input.search(regex);
+    var regexIdx = input.str.search(this.regex);
     if (regexIdx >= 0) { // Verifica se essa regra se aplica ou não
-        var inputLeft = input; // input a ser lido
-        var output = '';
+        var inputLeft = input.str; // input a ser lido
+        var output = new Cadeia('');
         while (regexIdx >= 0) {
-            output += inputLeft.substring(0, regexIdx); // output recebe inicio do input
-            var match = inputLeft.match(regex)[0]; // pega trecho do input que interessa
-            match = match.slice(0, match.search(patternCore) + patternCore.length); // Corta contexto fora
-            output += match.replace(patternCore, this.destino); // realiza a substituição
+            output.str += inputLeft.substring(0, regexIdx); // output recebe inicio do input
+            var match = inputLeft.match(this.regex)[0]; // pega trecho do input que interessa
+            match = match.slice(0, match.search(this.patternCore) + this.patternCore.length); // Corta contexto (sufixo) fora
+            output.str += match.replace(this.patternCore, this.destino); // realiza a substituição
             inputLeft = inputLeft.substr(regexIdx + match.length); // atualiza input a ser lido
-            regexIdx = inputLeft.search(regex); // procura se existem mais aplicações para a regra
+            regexIdx = inputLeft.search(this.regex); // procura se existem mais aplicações para a regra
         }
-        output += inputLeft; // output recebe restante do input
+        output.str += inputLeft; // output recebe restante do input
         console.log(this + ": " + output);
         return output;
     }

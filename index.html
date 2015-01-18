@@ -59,12 +59,12 @@
                         </span>
                 </div><!-- /input-group -->
                 <br />
-                <table class="table well">
+                <table class="table well" style="font-family: 'Voces', cursive;">
                     <tr><th scope="row" style="width: 1px;">Entrada:</td><td id="input-ortografico"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Fonético:</td><td id="input-fonetico"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Fonológico:</td><td id="input-fonologico"></td></tr>
                 </table>
-                <div class="well" >
+                <div class="well" style="font-family: 'Voces', cursive;" >
                     <div style="font-weight: bold; ">Saída</div>
                     <div id="fulloutput" style="float: left;"></div>
                     <div id="output" style="float: left; font-weight: bold; margin-left: 2em"></div>
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="font-family: 'Voces', cursive;">
             <div class="col-md-2 col-sm-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -135,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="font-family: 'Voces', cursive;">
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -302,7 +302,7 @@
         function aplicarRegras() {
             lerConjuntos();
             lerRegras();
-            var input = $('input').val().trim().toLowerCase();
+            var input = new Cadeia($('input').val().trim().toLowerCase());
             console.log('Input: ' + input);
 
             var inputFoneticos = transformar(_regrasOrto2Fone, input);
@@ -310,7 +310,11 @@
             showInputs(input, inputFoneticos, inputFonologicos);
 
             var lastOutputs = inputFoneticos;
-            var fullOutputs = inputFoneticos;
+            var fullOutputs = [];
+            for (var i = 0; i < inputFoneticos.length; i++) {
+                fullOutputs.push(inputFoneticos[i].str);
+            }
+
             for (var s = 0; s < _sincronias.length; s++) {
                 var regras = _sincronias[s];
                 // Auxliliares para não perder o controle da iteração 'i', pois os vetores mudam de tamanho.
@@ -329,7 +333,7 @@
 
                     auxOutputs = auxOutputs.concat(inputAtual);
                     for (var k = 0; k < inputAtual.length; k++) {
-                        auxFullOutputs.push(fullOutputs[i].concat(' > ', inputAtual[k]));
+                        auxFullOutputs.push(fullOutputs[i].concat(' > ', inputAtual[k].str));
                     }
                 }
                 lastOutputs = auxOutputs;
@@ -351,10 +355,10 @@
 
         // inOrto: string, inFone e inFono: array de strings
         function showInputs(inOrto, inFone, inFono) {
-            $('#input-ortografico').text(inOrto);
+            $('#input-ortografico').text(inOrto.str);
             var strFonetico = '';
             for (var i = 0; i < inFone.length; i++) {
-                strFonetico += '[' + inFone[i] + ']';
+                strFonetico += '[' + inFone[i].str + ']';
                 if (i < inFone.length - 1) {
                     strFonetico += ', ';
                 }
@@ -362,7 +366,7 @@
             $('#input-fonetico').text(strFonetico);
             var strFonologico = '';
             for (var i = 0; i < inFono.length; i++) {
-                strFonologico += '/' + inFono[i] + '/';
+                strFonologico += '/' + inFono[i].str + '/';
                 if (i < inFono.length - 1) {
                     strFonologico += ', ';
                 }

@@ -1,4 +1,16 @@
-ph{V} > f
-ph{V} > ph
-{V}s > z
-{V}ll{V} > l
+ɛ{V}     > j
+{V}ɛ#    > j
+e{V}     > j
+{V}e#    > j
+o{V}     > w
+{V}o#    > w
+{V}b{V}  > β
+{C}b{V}  > β
+{V}b#    >
+{V}bɾ{V} > βɾ
+{V}k{C}  > ɟ
+{C}k{C}  > 
+{V}k#    >
+{V}k{V}  > g
+{V}c{V}  > dz
+{V}cʎ{V} > gɾ
