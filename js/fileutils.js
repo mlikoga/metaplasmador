@@ -10,7 +10,8 @@ function getFileFromServer(url, doneCallback, doneCallbackArgs) {
     xhr.open("GET", url, true);
     xhr.send();
 
+
     function reqListener() {
-        doneCallback(this.status == 200 ? this.responseText : null, doneCallbackArgs);
+        doneCallback(this.responseText, doneCallbackArgs);
     }
 }
