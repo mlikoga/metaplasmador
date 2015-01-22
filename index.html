@@ -31,12 +31,11 @@
     <div class="container" role="main">
         <div class="jumbotron">
             <h1>Bem-vindo ao Metaplasmador!</h1>
-            <p>Transcritor automático Latim-português</p>
-        </div>
+       </div>
 
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Transformar</h3>
+                <h3 class="panel-title">Metaplasmador</h3>
             </div>
             <div class="panel-body">
                 <div class="input-group">
@@ -49,10 +48,9 @@
                 <table class="table well" style="font-family: 'Voces', cursive;">
                     <tr><th scope="row" style="width: 1px;">Entrada:</td><td id="input-ortografico"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Fonético:</td><td id="input-fonetico"></td></tr>
-                    <tr><th scope="row" style="width: 1px;">Fonológico:</td><td id="input-fonologico"></td></tr>
                 </table>
                 <div class="well" style="font-family: 'Voces', cursive;" >
-                    <div style="font-weight: bold; ">Saída</div>
+                    <div style="font-weight: bold; ">Saída:</div>
                     <div id="fulloutput" style="float: left;"></div>
                     <div id="output" style="float: left; font-weight: bold; margin-left: 2em"></div>
                     <div style="clear: both"></div>
@@ -325,7 +323,7 @@
             var lastOutputs = inputFoneticos;
             var fullOutputs = [];
             for (var i = 0; i < inputFoneticos.length; i++) {
-                fullOutputs.push(inputFoneticos[i].str);
+                fullOutputs.push('[' + inputFoneticos[i].str + ']');
             }
 
             for (var s = 0; s < _sincronias.length; s++) {
@@ -346,18 +344,29 @@
 
                     auxOutputs = auxOutputs.concat(inputAtual);
                     for (var k = 0; k < inputAtual.length; k++) {
-                        auxFullOutputs.push(fullOutputs[i].concat(' > ', inputAtual[k].str));
+                        auxFullOutputs.push(fullOutputs[i].concat(' > [', inputAtual[k].str, ']'));
                     }
                 }
                 lastOutputs = auxOutputs;
                 fullOutputs = auxFullOutputs;
             }
 
+            // Transformar de volta
+            var lastOutputsOrto = [];
+            for (var i = 0; i < lastOutputs.length; i++) {
+                lastOutputsOrto.push(transformar(_regrasFone2Orto, lastOutputs[i]));
+            }
+
             var fullOutput = '';
             var lastOutput = '';
             for (var k = 0; k < fullOutputs.length; k++) {
                 fullOutput += fullOutputs[k] + '\n';
-                lastOutput += lastOutputs[k] + '\n';
+                for (var i = 0; i < lastOutputsOrto[k].length; i++) {
+                    if (i > 0)
+                        lastOutput += ', ';
+                    lastOutput += lastOutputsOrto[k][i];
+                }
+                lastOutput += '\n';
             }
 
             $('#fulloutput').text(fullOutput);
