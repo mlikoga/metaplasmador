@@ -30,6 +30,15 @@
             assert.deepEqual( separar("patrem"), ["pa", "trem"] );
             assert.deepEqual( separar("lucretia"), ["lu", "cre", "ti", "a"] );
         });
+        QUnit.test( "Regra #7: PNEUMATICOS, PNYTAGORAS, MNEMONICOS", function( assert ) {
+            assert.deepEqual( separar("pneumaticos"), ["pneu", "ma", "ti", "cos"] );
+            assert.deepEqual( separar("pnytagoras"), ["pny", "ta", "go", "ras"] );
+            assert.deepEqual( separar("mnemonicos"), ["mne", "mo", "ni", "cos"] );
+        });
+        QUnit.test( "Regra #9: beatus, dea", function( assert ) {
+            assert.deepEqual( separar("beatus"), ["be", "a", "tus"] );
+            assert.deepEqual( separar("dea"), ["de", "a"] );
+        });
 
     </script>
 </body>
