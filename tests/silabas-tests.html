@@ -11,34 +11,7 @@
     <script src="../js/vendor/qunit-1.15.0.js"></script>
     <script src="../js/silabas.js"></script>
     <script type="text/javascript">
-        QUnit.test( "ROMA, AMO", function( assert ) {
-            assert.deepEqual( separar("roma"), ["ro", "ma"] );
-            assert.deepEqual( separar("amo"), ["a", "mo"] );
-        });
-        QUnit.test( "AETERNUS", function( assert ) {
-            assert.deepEqual( separar("aeternus"), ["ae", "ter", "nus"] );
-        });
-        QUnit.test( "ILLE, MITTO", function( assert ) {
-            assert.deepEqual( separar("ille"), ["il", "le"] );
-            assert.deepEqual( separar("mitto"), ["mit", "to"] );
-        });
-        QUnit.test( "Regra #3: RAPTUS, CONSUMPTUS", function( assert ) {
-            assert.deepEqual( separar("raptus"), ["rap", "tus"] );
-            assert.deepEqual( separar("consumptus"), ["con", "sump", "tus"] );
-        });
-        QUnit.test( "Regra #4: PATREM, LUCRETIA", function( assert ) {
-            assert.deepEqual( separar("patrem"), ["pa", "trem"] );
-            assert.deepEqual( separar("lucretia"), ["lu", "cre", "ti", "a"] );
-        });
-        QUnit.test( "Regra #7: PNEUMATICOS, PNYTAGORAS, MNEMONICOS", function( assert ) {
-            assert.deepEqual( separar("pneumaticos"), ["pneu", "ma", "ti", "cos"] );
-            assert.deepEqual( separar("pnytagoras"), ["pny", "ta", "go", "ras"] );
-            assert.deepEqual( separar("mnemonicos"), ["mne", "mo", "ni", "cos"] );
-        });
-        QUnit.test( "Regra #9: beatus, dea", function( assert ) {
-            assert.deepEqual( separar("beatus"), ["be", "a", "tus"] );
-            assert.deepEqual( separar("dea"), ["de", "a"] );
-        });
+
 
     </script>
 </body>
