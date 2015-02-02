@@ -59,6 +59,7 @@
                 <br />
                 <table class="table well" style="font-family: 'Voces', cursive;">
                     <tr><th scope="row" style="width: 1px;">Entrada:</td><td id="input-ortografico"></td></tr>
+                    <tr><th scope="row" style="width: 1px;">Sílabas:</td><td id="input-silabas"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Fonético:</td><td id="input-fonetico"></td></tr>
                 </table>
                 <div class="well" style="font-family: 'Voces', cursive;" >
@@ -172,6 +173,7 @@
     <script src="js/conjunto.js"></script>
     <script src="js/regra.js"></script>
     <script src="js/regra-ambigua.js"></script>
+    <script src="js/silabas.js"></script>
     <script src="js/fileutils.js"></script>
     <script src="js/vendor/jquery-1.11.1.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
@@ -339,7 +341,8 @@
 
             var inputFoneticos = transformar(_regrasOrto2Fone, input);
             var inputFonologicos = transformar(_regrasOrto2Fono, input);
-            showInputs(input, inputFoneticos, inputFonologicos);
+            var silabas = Silabas.encontrarTonica(Silabas.separar(input.str));
+            showInputs(input, inputFoneticos, silabas);
 
             var lastOutputs = inputFoneticos;
             var fullOutputs = [];
@@ -397,7 +400,7 @@
         }
 
         // inOrto: string, inFone e inFono: array de strings
-        function showInputs(inOrto, inFone, inFono) {
+        function showInputs(inOrto, inFone, silabas) {
             $('#input-ortografico').text(inOrto.str);
             var strFonetico = '';
             for (var i = 0; i < inFone.length; i++) {
@@ -407,14 +410,14 @@
                 }
             }
             $('#input-fonetico').text(strFonetico);
-            var strFonologico = '';
-            for (var i = 0; i < inFono.length; i++) {
-                strFonologico += '/' + inFono[i].str + '/';
-                if (i < inFono.length - 1) {
-                    strFonologico += ', ';
+            var strSilabas = '';
+            for (var i = 0; i < silabas.length; i++) {
+                strSilabas += silabas[i];
+                if (i < silabas.length - 1) {
+                    strSilabas += '-';
                 }
             }
-            $('#input-fonologico').text(strFonologico);
+            $('#input-silabas').text(strSilabas);
         }
     </script>
 

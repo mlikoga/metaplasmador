@@ -71,10 +71,8 @@ Silabas.encontrarTonica = function(silabas) {
         var penultima = silabas[silabas.length - 2];
         if (penultima.search(Silabas.regexMacron) > -1) {
             silabas[silabas.length - 2] = Silabas.acentoTonico + silabas[silabas.length - 2];
-        } else if (penultima.search(Silabas.regexBraquia) > -1) {
-            silabas[silabas.length - 3] = Silabas.acentoTonico + silabas[silabas.length - 3];
         } else {
-            silabas[silabas.length - 1] = Silabas.acentoTonico + silabas[silabas.length - 1];
+            silabas[silabas.length - 3] = Silabas.acentoTonico + silabas[silabas.length - 3];
         }
     }
     return silabas;
