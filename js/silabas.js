@@ -5,7 +5,7 @@
 var Silabas = Silabas || {};
 
 Silabas.acentoTonico = '\u02c8';
-Silabas.regexV = new RegExp('(ae|oe|au|a|e|i|o|u|y|ā|ă|ē|ĕ|ī|ĭ|ō|ŏ|ū|ŭ)', 'gi');
+Silabas.regexV = new RegExp('(ae|oe|au|æ|œ|a|e|i|o|u|y|ā|ă|ē|ĕ|ī|ĭ|ō|ŏ|ū|ŭ)', 'gi');
 Silabas.regexCC = new RegExp('(pl|pr|bl|br|tl|tr|dl|dr|cl|cr|gl|gr|ph|ch|th|rh|ps)', 'gi');
 Silabas.regexMacron = new RegExp('(ā|ē|ī|ō|ū)', 'gi');
 Silabas.regexBraquia = new RegExp('(ă|ĕ|ĭ|ŏ|ŭ)', 'gi');
