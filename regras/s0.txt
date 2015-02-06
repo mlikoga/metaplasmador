@@ -1,34 +1,23 @@
-﻿ph > f
-ch > c
-rh > r
-th > t
+﻿ʰ > 
 h >
-a > a
-ā > a
-ă > a
-e > e
-ē > e
-ĕ > ɛ
-o > o
-ō > o
-ŏ > ɔ
-i > i
-ī > i
-ĭ > e
-ū > u
-ŭ > ʊ
+a: > a
+e: > e
+e > ɛ
+o: > o
+o > ɔ
+i: > i
+i > e
+u: > u
+u > ʊ
 y > i
-æ > ɛ
-ae > ɛ
-au > aw
-œ > e
-oe > e
-j > j
-v > v
+aj > ɛ
+ø > e
+w > v
 bb > b
 pp > p
 {V}b{V} > β
-ff > f
+ɸɸ > f
+ɸ > f
 mm > m
 {V}d{V} > ð
 dd >d
@@ -36,21 +25,13 @@ tt > t
 {V}s{V} > z̪
 ss > s̪
 s > s̪
-cc > k
-c{VA} > c
-c{VP} > k
-c{C} > c
-c{#} >
+kk > k
+k{VA} > c
+k{C} > c
+k{#} >
 gg > g
 g{VA} > ɟ
-g{VP} > g
 g{C} > ɟ
-qu > kw
-gu > gw
 {V}x{V} > ɟs
-x > cs
-{V}z{V} > dz
-z > ts
-nk > ŋk
-ŋg > ŋg
+ks > cs
 m# >
