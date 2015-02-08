@@ -2,6 +2,11 @@
  * Created by MLK on 25/01/2015.
  */
 
+function Silaba(str) {
+    this.str = str;
+    this.tonica = false;
+}
+
 var Silabas = Silabas || {};
 
 Silabas.acentoTonico = '\u02c8';
@@ -62,18 +67,28 @@ Silabas.separar = function(input) {
 }
 
 Silabas.encontrarTonica = function(silabas) {
+
+    // Transformando em objetos Silaba
+    for (var i = 0; i < silabas.length; i++) {
+        silabas[i] = new Silaba(silabas[i]);
+    }
+
     if(silabas.length < 1) {
         return silabas;
     }
     if (silabas.length <= 2) {
-        silabas[0] = Silabas.acentoTonico + silabas[0];
+        silabas[0].str = Silabas.acentoTonico + silabas[0].str;
+        silabas[0].tonica = true;
     } else {
-        var penultima = silabas[silabas.length - 2];
+        var penultima = silabas[silabas.length - 2].str;
         if (penultima.search(Silabas.regexMacron) > -1) {
-            silabas[silabas.length - 2] = Silabas.acentoTonico + silabas[silabas.length - 2];
+            silabas[silabas.length - 2].str = Silabas.acentoTonico + silabas[silabas.length - 2].str;
+            silabas[silabas.length - 2].tonica = true;
         } else {
-            silabas[silabas.length - 3] = Silabas.acentoTonico + silabas[silabas.length - 3];
+            silabas[silabas.length - 3].str = Silabas.acentoTonico + silabas[silabas.length - 3].str;
+            silabas[silabas.length - 3].tonica = true;
         }
     }
+
     return silabas;
 }
