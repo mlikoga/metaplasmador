@@ -92,15 +92,15 @@ Regra.prototype.aplicar = function (input) {
         var silabas = input.silabas;
         var output = new Cadeia('');
         while (regexIdx >= 0) {
-            output.str += inputLeft.substring(0, regexIdx); // output recebe inicio do input
+            output.str += inputLeft.substring(0, regexIdx); // output recebe inicio do input que não foi modificado
             var strMatch = inputLeft.match(this.regex)[0]; // pega trecho do input que interessa
             var coreIdx = strMatch.search(this.patternCore); // pega indice do core (ATENCAO: aqui dá erro se prefixo contiver o core)
             strMatch = strMatch.slice(0, coreIdx + this.patternCore.length); // Corta contexto (sufixo) fora
-            output.str += strMatch.replace(this.patternCore, this.destino); // realiza a substituição na string
-            if (silabas != undefined) { // realiza a mesma substituição nas silabas
-                var silabaIdx = Silabas.encontrarSilabaIdx(silabas, coreIdx);
+            if (silabas != undefined) { // realiza a substituição nas silabas
+                var silabaIdx = Silabas.encontrarSilabaIdx(silabas, output.str.length + coreIdx);
                 silabas[silabaIdx].str = silabas[silabaIdx].str.replace(this.patternCore, this.destino);
             }
+            output.str += strMatch.replace(this.patternCore, this.destino); // realiza a mesma substituição na string
             inputLeft = inputLeft.substr(regexIdx + strMatch.length); // atualiza input a ser lido
             regexIdx = inputLeft.search(this.regex); // procura se existem mais aplicações para a regra
         }
@@ -112,6 +112,7 @@ Regra.prototype.aplicar = function (input) {
     return input;
 };
 
+// Override
 Regra.prototype.toString = function() {
     return this.origem + " > " + this.destino;
 };
