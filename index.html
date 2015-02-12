@@ -204,8 +204,6 @@
             getFileFromServer("regras/conjuntos.txt", fillTextArea, "conjuntos");
             getFileFromServer("regras/ortografico-fonetico.txt", fillTextArea, "orto2fone");
             getFileFromServer("regras/fonetico-ortografico.txt", fillTextArea, "fone2orto");
-            getFileFromServer("regras/ortografico-fonologico.txt", storeRegras, _regrasOrto2Fono);
-            getFileFromServer("regras/fonologico-ortografico.txt", storeRegras, _regrasFono2Orto);
         }
 
         function fillTextArea(text, idTextArea) {
@@ -301,14 +299,15 @@
             var input = new Cadeia($('input').val().trim().toLowerCase());
             console.log('Input: ' + input);
 
-            var inputFoneticos = transformar(_regrasOrto2Fone, input);
             var silabas = Silabas.encontrarTonica(Silabas.separar(input.str));
+            input.silabas = silabas;
+            var inputFoneticos = transformar(_regrasOrto2Fone, input);
             showInputs(input, inputFoneticos, silabas);
 
             var lastOutputs = inputFoneticos;
             var fullOutputs = [];
             for (var i = 0; i < inputFoneticos.length; i++) {
-                fullOutputs.push('*[' + inputFoneticos[i].str + ']');
+                fullOutputs.push('*[' + inputFoneticos[i].imprimir() + ']');
             }
 
             for (var s = 0; s < _sincronias.length; s++) {
@@ -329,7 +328,7 @@
 
                     auxOutputs = auxOutputs.concat(inputAtual);
                     for (var k = 0; k < inputAtual.length; k++) {
-                        auxFullOutputs.push(fullOutputs[i].concat(' > *[', inputAtual[k].str, ']'));
+                        auxFullOutputs.push(fullOutputs[i].concat(' > *[',  inputAtual[k].imprimir(), ']'));
                     }
                 }
                 lastOutputs = auxOutputs;
@@ -360,12 +359,12 @@
             $('#output').html($('#output').html().replace(/\n/g,'<br/>'));
         }
 
-        // inOrto: string, inFone e silabas: array de Silaba
+        // inOrto: string, inFone: array e silabas: array de Silaba
         function showInputs(inOrto, inFone, silabas) {
             $('#input-ortografico').text(inOrto.str);
             var strFonetico = '';
             for (var i = 0; i < inFone.length; i++) {
-                strFonetico += '[' + inFone[i].str + ']';
+                strFonetico += '[' + inFone[i].imprimir() + ']';
                 if (i < inFone.length - 1) {
                     strFonetico += ', ';
                 }
@@ -373,6 +372,9 @@
             $('#input-fonetico').text(strFonetico);
             var strSilabas = '';
             for (var i = 0; i < silabas.length; i++) {
+                if (silabas[i].tonica) {
+                    strSilabas += Silabas.acentoTonico;
+                }
                 strSilabas += silabas[i].str;
                 if (i < silabas.length - 1) {
                     strSilabas += '-';

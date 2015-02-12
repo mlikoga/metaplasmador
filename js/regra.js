@@ -1,13 +1,25 @@
 // Classe Cadeia
-function Cadeia(str) {
+function Cadeia(str, silabas) {
     this.strOriginal = str;
     this.str = str;
+    this.silabas = silabas;
     this.index = 0;
 }
 
 Cadeia.prototype.toString = function() {
     return this.str;
 };
+
+Cadeia.prototype.imprimir = function() {
+    var str = '';
+    for (var i = 0; i < this.silabas.length; i++) {
+        if (this.silabas[i].tonica) {
+            str += Silabas.acentoTonico;
+        }
+        str += this.silabas[i].str;
+    }
+    return str;
+}
 
 // Classe Regra
 function Regra(origem, destino) {
@@ -77,16 +89,23 @@ Regra.prototype.aplicar = function (input) {
     var regexIdx = input.str.search(this.regex);
     if (regexIdx >= 0) { // Verifica se essa regra se aplica ou não
         var inputLeft = input.str; // input a ser lido
+        var silabas = input.silabas;
         var output = new Cadeia('');
         while (regexIdx >= 0) {
             output.str += inputLeft.substring(0, regexIdx); // output recebe inicio do input
-            var match = inputLeft.match(this.regex)[0]; // pega trecho do input que interessa
-            match = match.slice(0, match.search(this.patternCore) + this.patternCore.length); // Corta contexto (sufixo) fora
-            output.str += match.replace(this.patternCore, this.destino); // realiza a substituição
-            inputLeft = inputLeft.substr(regexIdx + match.length); // atualiza input a ser lido
+            var strMatch = inputLeft.match(this.regex)[0]; // pega trecho do input que interessa
+            var coreIdx = strMatch.search(this.patternCore); // pega indice do core (ATENCAO: aqui dá erro se prefixo contiver o core)
+            strMatch = strMatch.slice(0, coreIdx + this.patternCore.length); // Corta contexto (sufixo) fora
+            output.str += strMatch.replace(this.patternCore, this.destino); // realiza a substituição na string
+            if (silabas != undefined) { // realiza a mesma substituição nas silabas
+                var silabaIdx = Silabas.encontrarSilabaIdx(silabas, coreIdx);
+                silabas[silabaIdx].str = silabas[silabaIdx].str.replace(this.patternCore, this.destino);
+            }
+            inputLeft = inputLeft.substr(regexIdx + strMatch.length); // atualiza input a ser lido
             regexIdx = inputLeft.search(this.regex); // procura se existem mais aplicações para a regra
         }
         output.str += inputLeft; // output recebe restante do input
+        output.silabas = silabas;
         console.log(this + ": " + output);
         return output;
     }

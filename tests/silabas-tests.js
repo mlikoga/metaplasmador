@@ -42,3 +42,15 @@ QUnit.test( "Regra #9: beatus, dea", function( assert ) {
     assert.deepEqual( Silabas.separar("beatus"), ["be", "a", "tus"] );
     assert.deepEqual( Silabas.separar("dea"), ["de", "a"] );
 });
+QUnit.test( "encontrarSilabaIdx", function ( assert ) {
+    var s1 = new Silaba('be');
+    var s2 = new Silaba('a');
+    var s3 = new Silaba('tus');
+    var silabas = [s1,s2,s3];
+    assert.equal( Silabas.encontrarSilabaIdx(silabas, 0), 0);
+    assert.equal( Silabas.encontrarSilabaIdx(silabas, 1), 0);
+    assert.equal( Silabas.encontrarSilabaIdx(silabas, 2), 1);
+    assert.equal( Silabas.encontrarSilabaIdx(silabas, 3), 2);
+    assert.equal( Silabas.encontrarSilabaIdx(silabas, 4), 2);
+    assert.equal( Silabas.encontrarSilabaIdx(silabas, 5), 2);
+});

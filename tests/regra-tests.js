@@ -82,4 +82,8 @@ QUnit.test( "Regra contexto {V}ll{V} > ", function( assert ) {
     assert.equal( regra.aplicar(new Cadeia("cllama")).str, "cllama" );
 });
 
-
+QUnit.test( "Regra contexto {V}a > x", function( assert ) {
+    var regra = new Regra("{V}a","x");
+    assert.equal( regra.aplicar(new Cadeia("eat")).str, "ext" );
+    assert.equal( regra.aplicar(new Cadeia("aa")).str, "ax" );
+});
