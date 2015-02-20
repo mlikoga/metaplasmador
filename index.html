@@ -27,7 +27,7 @@
             </div>
             <div class="panel-body">
                 <div class="input-group">
-                    <input id="input" type="text" class="form-control" placeholder="Insira palavra em latim">
+                    <input id="input" type="text" class="form-control" placeholder="Insira palavra em latim" value="cāntārĕ">
                     <span class="input-group-btn">
                         <button id="btn_aplicar" class="btn btn-primary" type="button" onclick="aplicarRegras()">Transformar!</button>
                     </span>
@@ -47,11 +47,13 @@
                     <button class="btn btn-default" onclick="inserirCaracter(this)">œ</button>
                 </div>
                 <br />
+                <!--
                 <table class="table well" style="font-family: 'Voces', cursive;">
                     <tr><th scope="row" style="width: 1px;">Entrada:</td><td id="input-ortografico"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Sílabas:</td><td id="input-silabas"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Fonético:</td><td id="input-fonetico"></td></tr>
                 </table>
+                -->
                 <div class="well" style="font-family: 'Voces', cursive;" >
                     <div style="font-weight: bold; ">Saída:</div>
                     <div id="fulloutput" style="float: left;"></div>
@@ -61,96 +63,100 @@
             </div>
         </div>
 
-        <div class="row" style="font-family: 'Voces', cursive;">
-            <div class="col-md-2 col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">S0</h3>
+        <button class="btn btn-info" data-toggle="collapse" data-target="#divRegras" style="margin-bottom: 20px">Ver regras</button>
+
+        <div id="divRegras" class="panel collapse">
+            <div class="row" style="font-family: 'Voces', cursive;">
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">S0</h3>
+                        </div>
+                        <div class="panel-body no-padding">
+                            <textarea id="s0" class="form-control" rows="10"></textarea>
+                        </div>
                     </div>
-                    <div class="panel-body no-padding">
-                        <textarea id="s0" class="form-control" rows="10"></textarea>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">S1</h3>
+                        </div>
+                        <div class="panel-body no-padding">
+                            <textarea id="s1" class="form-control" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">S2</h3>
+                        </div>
+                        <div class="panel-body no-padding">
+                            <textarea id="s2" class="form-control" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">S3</h3>
+                        </div>
+                        <div class="panel-body no-padding">
+                            <textarea id="s3" class="form-control" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">S4</h3>
+                        </div>
+                        <div class="panel-body no-padding">
+                            <textarea id="s4" class="form-control" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">S5</h3>
+                        </div>
+                        <div class="panel-body no-padding">
+                            <textarea id="s5" class="form-control" rows="10"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">S1</h3>
-                    </div>
-                    <div class="panel-body no-padding">
-                        <textarea id="s1" class="form-control" rows="10"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">S2</h3>
-                    </div>
-                    <div class="panel-body no-padding">
-                        <textarea id="s2" class="form-control" rows="10"></textarea>
+            <div class="row" style="font-family: 'Voces', cursive;">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Conjuntos</h3>
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="conjuntos" class="form-control" rows="10"></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">S3</h3>
-                    </div>
-                    <div class="panel-body no-padding">
-                        <textarea id="s3" class="form-control" rows="10"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">S4</h3>
-                    </div>
-                    <div class="panel-body no-padding">
-                        <textarea id="s4" class="form-control" rows="10"></textarea>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Ortográfico > Fonético</h3>
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="orto2fone" class="form-control" rows="10"></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">S5</h3>
-                    </div>
-                    <div class="panel-body no-padding">
-                        <textarea id="s5" class="form-control" rows="10"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="font-family: 'Voces', cursive;">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Conjuntos</h3>
-                    </div>
-                    <div class="panel-body">
-                        <textarea id="conjuntos" class="form-control" rows="10"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Ortográfico > Fonético</h3>
-                    </div>
-                    <div class="panel-body">
-                        <textarea id="orto2fone" class="form-control" rows="10"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Fonético > Ortográfico</h3>
-                    </div>
-                    <div class="panel-body">
-                        <textarea id="fone2orto" class="form-control" rows="10"></textarea>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Fonético > Ortográfico</h3>
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="fone2orto" class="form-control" rows="10"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -311,6 +317,7 @@
             }
 
             for (var s = 0; s < _sincronias.length; s++) {
+                console.log("------ Sincronia " + s + " ------");
                 var regras = _sincronias[s];
                 // Auxliliares para não perder o controle da iteração 'i', pois os vetores mudam de tamanho.
                 var auxOutputs = [];
@@ -318,10 +325,11 @@
                 for (var i = 0; i < lastOutputs.length; i++) {
                     var inputAtual = [ lastOutputs[i] ];
                     for (var j = 0; j < regras.length; j++) {
+                        var regra = regras[j];
                         var auxInputAtual = [];
                         for (var k = 0; k < inputAtual.length; k++) {
-                            var regraOutputs = regras[j].aplicar(inputAtual[k]);
-                            auxInputAtual = auxInputAtual.concat(regraOutputs);
+                            var regraOutputs = regra.aplicar(inputAtual[k]);
+                            auxInputAtual = auxInputAtual.concat(regraOutputs); // Seja regraOutputs array ou elemento, concat funciona.
                         }
                         inputAtual = auxInputAtual;
                     }

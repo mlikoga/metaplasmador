@@ -1,4 +1,8 @@
-﻿ɐj > ei
+﻿ɐ̃p > amp
+ɐ̃b > amb
+ɐ̃# > ã
+ɐ̃ > an
+ɐj > ei
 ɐ > a
 ŋ > n
 j > i
@@ -25,10 +29,6 @@ tʃ > t
 ʀ > r
 x > r
 h > r
-ɐ̃p > amp
-ɐ̃b > amb
-ɐ̃# > ã
-ɐ̃ > an
 ẽp > emp
 ẽb > emb
 ẽ# > em

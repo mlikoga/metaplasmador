@@ -87,3 +87,4 @@ QUnit.test( "Regra contexto {V}a > x", function( assert ) {
     assert.equal( regra.aplicar(new Cadeia("eat")).str, "ext" );
     assert.equal( regra.aplicar(new Cadeia("aa")).str, "ax" );
 });
+
