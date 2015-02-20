@@ -1,7 +1,11 @@
 // Classe Cadeia
 function Cadeia(str, silabas) {
     this.str = str;
-    this.silabas = silabas;
+    if (silabas == undefined) {
+        this.silabas = [ new Silaba(str) ];
+    } else {
+        this.silabas = silabas;
+    }
     this.index = 0;
 }
 
