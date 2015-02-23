@@ -47,10 +47,11 @@ QUnit.test( "encontrarSilabaIdx", function ( assert ) {
     var s2 = new Silaba('a');
     var s3 = new Silaba('tus');
     var silabas = [s1,s2,s3];
-    assert.equal( Silabas.encontrarSilabaIdx(silabas, 0), 0);
-    assert.equal( Silabas.encontrarSilabaIdx(silabas, 1), 0);
-    assert.equal( Silabas.encontrarSilabaIdx(silabas, 2), 1);
-    assert.equal( Silabas.encontrarSilabaIdx(silabas, 3), 2);
-    assert.equal( Silabas.encontrarSilabaIdx(silabas, 4), 2);
-    assert.equal( Silabas.encontrarSilabaIdx(silabas, 5), 2);
+    var cadeia = new Cadeia(silabas);
+    assert.equal( cadeia.encontrarSilabaIdx(0), 0);
+    assert.equal( cadeia.encontrarSilabaIdx(1), 0); // 2 é -
+    assert.equal( cadeia.encontrarSilabaIdx(3), 1); // 4 é -
+    assert.equal( cadeia.encontrarSilabaIdx(5), 2);
+    assert.equal( cadeia.encontrarSilabaIdx(6), 2);
+    assert.equal( cadeia.encontrarSilabaIdx(7), 2);
 });

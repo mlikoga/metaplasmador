@@ -96,19 +96,3 @@ Silabas.encontrarTonica = function(silabas) {
 
     return silabas;
 }
-
-/**
- * Dado um array de silabas e o indice de um caractere, retorna o indice da sílaba que contém esse caractere.
- * @param silabas
- * @param charIdx
- */
-Silabas.encontrarSilabaIdx = function(silabas, charIdx) {
-    var silabaIdx = 0;
-    var currentCharIdx = -1;
-    while (currentCharIdx < charIdx && silabaIdx < silabas.length) {
-        currentCharIdx += silabas[silabaIdx].str.length;
-        silabaIdx++;
-    }
-
-    return silabaIdx - 1;
-}

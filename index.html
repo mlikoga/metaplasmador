@@ -166,6 +166,7 @@
 
     <!-- Javascript -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/cadeia.js"></script>
     <script src="js/conjunto.js"></script>
     <script src="js/regra.js"></script>
     <script src="js/regra-ambigua.js"></script>
@@ -302,18 +303,18 @@
         function aplicarRegras() {
             lerConjuntos();
             lerRegras();
-            var input = new Cadeia($('input').val().trim().toLowerCase());
-            console.log('Input: ' + input);
+            var strInput = $('input').val().trim().toLowerCase();
+            console.log('Input: ' + strInput);
+            var silabas = Silabas.encontrarTonica(Silabas.separar(strInput));
 
-            var silabas = Silabas.encontrarTonica(Silabas.separar(input.str));
-            input.silabas = silabas;
+            var input = new Cadeia(silabas);
             var inputFoneticos = transformar(_regrasOrto2Fone, input);
             showInputs(input, inputFoneticos, silabas);
 
             var lastOutputs = inputFoneticos;
             var fullOutputs = [];
             for (var i = 0; i < inputFoneticos.length; i++) {
-                fullOutputs.push('*[' + inputFoneticos[i].imprimir() + ']');
+                fullOutputs.push('*[' + inputFoneticos[i].toString() + ']');
             }
 
             for (var s = 0; s < _sincronias.length; s++) {
@@ -336,7 +337,7 @@
 
                     auxOutputs = auxOutputs.concat(inputAtual);
                     for (var k = 0; k < inputAtual.length; k++) {
-                        auxFullOutputs.push(fullOutputs[i].concat(' > *[',  inputAtual[k].imprimir(), ']'));
+                        auxFullOutputs.push(fullOutputs[i].concat(' > *[',  inputAtual[k].toString(), ']'));
                     }
                 }
                 lastOutputs = auxOutputs;
@@ -356,7 +357,7 @@
                 for (var i = 0; i < lastOutputsOrto[k].length; i++) {
                     if (i > 0)
                         lastOutput += ', ';
-                    lastOutput += lastOutputsOrto[k][i];
+                    lastOutput += lastOutputsOrto[k][i].imprimir();
                 }
                 lastOutput += '\n';
             }
