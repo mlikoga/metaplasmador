@@ -64,7 +64,7 @@ QUnit.test( "2 Regra ambiguas i > e; i > u", function( assert ) {
 
 QUnit.module("Conjuntos", {
     setup: function() {
-        _conjuntos = {"V" : "a,e,i,o,u"}; // Sem var para ser global
+        _conjuntos = {"V" : "a,e,i,o,u", "C" : "b,c,d,f,g,h,k,l,m,n,p,q,r,s,t,v,w,x,y,z"}; // Sem var para ser global
     }
 });
 
@@ -88,6 +88,19 @@ QUnit.test( "Regra contexto {V}ll{V} > ", function( assert ) {
     assert.equal( regra.aplicar(criarCadeia(["be","la"])).imprimir(), "bela" );
     assert.equal( regra.aplicar(criarCadeia(["lla","ma"])).imprimir(), "llama" );
     assert.equal( regra.aplicar(criarCadeia(["clla","ma"])).imprimir(), "cllama" );
+});
+
+QUnit.test( "Regra contexto {V}{C}l > ", function( assert ) {
+    var regra = new Regra("{V}{C}l","r");
+    assert.equal( regra.aplicar(criarCadeia(["ablir"])).imprimir(), "abrir" );
+    assert.equal( regra.aplicar(criarCadeia(["ail"])).imprimir(), "ail" );
+});
+
+QUnit.test( "Regra contexto {V}{C}a${C}{V} > ", function( assert ) {
+    var regra = new Regra("{C}{V}a${C}{V}","e");
+    assert.equal( regra.aplicar(criarCadeia(["koa", "la"])).imprimir(), "koela" );
+    assert.equal( regra.aplicar(criarCadeia(["koala"])).imprimir(), "koala" );
+    assert.equal( regra.aplicar(criarCadeia(["koa", "ui"])).imprimir(), "koaui" );
 });
 
 QUnit.test( "Regra contexto {V}a > x", function( assert ) {
