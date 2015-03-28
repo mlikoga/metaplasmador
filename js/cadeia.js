@@ -14,6 +14,7 @@ function Cadeia(silabas) {
         }
     }
     this.str += Cadeia.EMPTY_CHAR;
+    this.index = 0;
 
 }
 

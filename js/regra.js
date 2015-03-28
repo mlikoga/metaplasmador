@@ -3,9 +3,9 @@ function Regra(origem, destino) {
 
     // Inicialização dos mebros da classe
     this.origem = origem;
-    this.regex = '';
     this.patternCore = '';
     this.tonicidade = Regra.TIPOS.QUALQUER;
+    var pattern = '';
 
     // Parse da regra
     for (var i = 0; i < this.origem.length; i++) {
@@ -21,7 +21,7 @@ function Regra(origem, destino) {
                     var cj = _conjuntos[cjNome];
                     var cjRegex = '' + cj;
                     cjRegex = cjRegex.replace(new RegExp(',', 'g'), '');
-                    this.regex += '[' + cjRegex + ']';
+                    pattern += '[' + cjRegex + ']';
                     i = cjIdx2; // Avança i
                 }
                 break;
@@ -67,19 +67,20 @@ function Regra(origem, destino) {
                 break;
             case Regra.ANY_QTY_CHAR:
             case Regra.ONE_MORE_CHAR:
-                this.regex += char;
+                pattern += char;
                 break;
             case Regra.SILABA_CHAR:
-                this.regex += Cadeia.SILABA_CHAR; // Trocar caracter pq $ dá probblema na regex
+                pattern += Cadeia.SILABA_CHAR; // Trocar caracter pq $ dá probblema na regex
                 this.patternCore += Cadeia.SILABA_CHAR;
                 break;
             case Regra.EMPTY_CHAR:
             default:
-                this.regex += char;
+                pattern += char;
                 this.patternCore += char;
         }
     }
 
+    this.regex = new RegExp(pattern, 'i');
     this.destino = destino.replace(new RegExp('\\' + Regra.SILABA_CHAR,'g'), Cadeia.SILABA_CHAR);
 }
 
