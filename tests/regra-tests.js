@@ -103,10 +103,25 @@ QUnit.test( "Regra contexto {V}{C}a${C}{V} > ", function( assert ) {
     assert.equal( regra.aplicar(criarCadeia(["koa", "ui"])).imprimir(), "koaui" );
 });
 
-QUnit.test( "Regra contexto {V}a > x", function( assert ) {
-    var regra = new Regra("{V}a","x");
-    assert.equal( regra.aplicar(criarCadeia(["eat"])).imprimir(), "ext" );
-    assert.equal( regra.aplicar(criarCadeia(["aa"])).imprimir(), "ax" );
+QUnit.test( "Regra caracter * i{C}* > e", function( assert ) {
+    var regra = new Regra("i{C}*","e");
+    assert.equal( regra.aplicar(criarCadeia(["i"])).imprimir(), "e" );
+    assert.equal( regra.aplicar(criarCadeia(["ic"])).imprimir(), "ec" );
+    assert.equal( regra.aplicar(criarCadeia(["icd"])).imprimir(), "ecd" );
+});
+
+QUnit.test( "Regra caracter * e{C}*${C}*{V} > i", function( assert ) {
+    var regra = new Regra("e{C}*${C}*{V}","i");
+    assert.equal( regra.aplicar(criarCadeia(["e"])).imprimir(), "e" );
+    assert.equal( regra.aplicar(criarCadeia(["e","a"])).imprimir(), "ia" );
+    assert.equal( regra.aplicar(criarCadeia(["fe","ci"])).imprimir(), "fici" );
+});
+
+QUnit.test( "Regra caracter * i{C}+ > e", function( assert ) {
+    var regra = new Regra("i{C}+","e");
+    assert.equal( regra.aplicar(criarCadeia(["i"])).imprimir(), "i" );
+    assert.equal( regra.aplicar(criarCadeia(["ic"])).imprimir(), "ec" );
+    assert.equal( regra.aplicar(criarCadeia(["icd"])).imprimir(), "ecd" );
 });
 
 QUnit.module("Silabas tonicas", {

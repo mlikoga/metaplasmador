@@ -65,6 +65,10 @@ function Regra(origem, destino) {
                     this.tonicidade = Regra.TIPOS.POSTONICA;
                 }
                 break;
+            case Regra.ANY_QTY_CHAR:
+            case Regra.ONE_MORE_CHAR:
+                this.regex += char;
+                break;
             case Regra.SILABA_CHAR:
                 this.regex += Cadeia.SILABA_CHAR; // Trocar caracter pq $ dá probblema na regex
                 this.patternCore += Cadeia.SILABA_CHAR;
@@ -83,7 +87,8 @@ Regra.EMPTY_CHAR = '#';
 Regra.SILABA_CHAR = '$';
 Regra.CJ_START = '\{';
 Regra.CJ_END   = '\}';
-Regra.REGEX_CHARS = ['*','+'];
+Regra.ANY_QTY_CHAR = '*';
+Regra.ONE_MORE_CHAR = '+';
 Regra.TONICA = '\u02c8';
 Regra.ATONA = 'º';
 Regra.PRETONICA = '-';
