@@ -22,18 +22,18 @@ function inserirCaracter(button) {
 function loadRegras() {
     for (var i = 0 ; i < numSincronias; i++) {
         var sincroniaId = "s" + i;
-        getFileFromServer("regras/" + sincroniaId + ".txt", fillTextArea, sincroniaId);
+        getFileFromServer("regras/" + sincroniaId + ".txt", fillTextArea, "#" + sincroniaId);
     }
-    getFileFromServer("regras/conjuntos.txt", fillTextArea, "conjuntos");
-    getFileFromServer("regras/ortografico-fonetico.txt", fillTextArea, "orto2fone");
-    getFileFromServer("regras/fonetico-ortografico.txt", fillTextArea, "fone2orto");
+    getFileFromServer("regras/conjuntos.txt", fillTextArea, "#conjuntos");
+    getFileFromServer("regras/ortografico-fonetico.txt", fillTextArea, "#orto2fone");
+    getFileFromServer("regras/fonetico-ortografico.txt", fillTextArea, "#fone2orto");
 }
 
-function fillTextArea(text, idTextArea) {
+function fillTextArea(text, cssSelector) {
     if (text === null) {
         console.log('Erro ao ler arquivo.');
     } else {
-        $('#' + idTextArea).val(text);
+        $(cssSelector).val(text);
     }
 }
 
