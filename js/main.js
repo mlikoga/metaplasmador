@@ -27,6 +27,7 @@ function loadRegras() {
     getFileFromServer("regras/conjuntos.txt", fillTextArea, "#conjuntos");
     getFileFromServer("regras/ortografico-fonetico.txt", fillTextArea, "#orto2fone");
     getFileFromServer("regras/fonetico-ortografico.txt", fillTextArea, "#fone2orto");
+    getFileFromServer("ajuda.txt", fillText, "#helpModal-text");
 }
 
 function fillTextArea(text, cssSelector) {
@@ -34,6 +35,15 @@ function fillTextArea(text, cssSelector) {
         console.log('Erro ao ler arquivo.');
     } else {
         $(cssSelector).val(text);
+    }
+}
+
+function appendHTML(text, cssSelector) {
+    if (text === null) {
+        console.log('Erro ao ler arquivo.');
+    } else {
+        var html = $.parseHTML(text);
+        $(cssSelector).append();
     }
 }
 

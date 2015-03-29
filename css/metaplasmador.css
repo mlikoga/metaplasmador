@@ -22,3 +22,12 @@ body {
     src: local('Voces'), local('Voces-Regular'), url(http://fonts.gstatic.com/s/voces/v4/JozN20EhXqWGzsF-OMFYBg.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+
+.btn-circle {
+    background: url("../images/help.png");
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-width: 0;
+}

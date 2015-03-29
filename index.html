@@ -64,7 +64,8 @@
                 </div>
 
                 <div class="text-right">
-                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#helpModal">Ajuda</button>
+                    <button class="btn-circle" data-toggle="modal" data-target="#helpModal">
+                    </button>
                 </div>
                 <!-- Modal -->
                 <div id="helpModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -74,55 +75,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel">Ajuda</h4>
                             </div>
-                            <div class="modal-body">
-                                <p>O Metaplasmador é um programa que simula, a partir de um input em latim, como seriam as possíveis soluções, caso esse input sobrevivesse como uma palavra da sincronia atual.
-                                Para tal, é preciso discriminar vogais longas e breves (sobretudo a penúltima) do input.
-                                Ao clicar em Transformar, o programa fornece um separação silábica com indicação do acento tônico e uma suposta transcrição fonética, que é obtida mediante regras presentes no campo Ortográfico > Fonético.
-
-                                <p>A partir dessa transformações, geram-se as seguintes etapas:
-
-                                <ul>
-                                    <li>s0  ?  Do latim comum à formação do latim vulgar (entre o século I a.C. e o século V d.C.);</li>
-                                    <li>s1  ?  Do latim vulgar à formação do ibero-românico (entre o século III a. C. e o século V d.C.);</li>
-                                    <li>s2  ?  Do iberorromânico à formação do ibero-românico do noroeste peninsular (entre o século VI e o IX);</li>
-                                    <li>s3  ?  Do ibero-românico do noroeste peninsular à formação do galego-português (entre o século X  e o século XIII);</li>
-                                    <li>s4  ?  Do galego-português à formação do português antigo (entre o século XIV e o XVII);</li>
-                                    <li>s5  ?  Do português antigo à formação do português moderno (entre o século XVIII e o XXI)</li>
-                                </ul>
-
-                                <p>As regras de cada sincronia estão descritas na parte inferior da tela e seguem a seguinte estrutura:
-
-                                <p>input > output
-
-                                <p>O input equivale à sincronia anterior e o output é a sincronia em questão.
-
-                                <p>O input pode ser um som ou uma sequência de sons seguido ou não de restrições (portanto, há regras mais gerais e regras mais específicas):
-
-                                <p>
-                                i > e significa que todo [i] se transforma em [e]<br/>
-                                mn > nn significa que a sequência [mn] se transforma em [nn]<br/>
-                                l# > l significa que um [l] em posição final absoluta se transforma em [l]<br/>
-                                #s > es significa que um [s] inicial absoluto se transforma em [es]<br/>
-                                $k > g significa que um [k] inicial não-absoluto se transforma em [g]<br/>
-                                e > i significa que qualquer [e] se transforma em [i]<br/>
-                                'e > i significa que um [e] tônico se transforma em [i]<br/>
-                                ºe > i significa que um [e] átono se transforma em [i]<br/>
-                                -e > i significa que um [e] átono pretônico se transforma em [i]<br/>
-                                =e > i significa que um [e] átono postônico se transforma em [i]<br/>
-                                -!e > i significa que um [e] átono pretônico imediato se transforma em [i]<br/>
-                                =!e > i significa que um [e] átono postônico imediato se transforma em [i]<br/>
-                                --e >i significa que um [e] átono pretônico não-imediato se transforma em [i]<br/>
-                                ==e > i significa que um [e] átono postônico não-imediato se transforma em [i]<br/>
-                                </p>
-                                <p>As restrições podem envolver também conjuntos que são definidos no campo Conjuntos
-
-                                <p>
-                                {V}$t{V} > d significa que um [t], na posição inicial antecedido e seguido de vogais se torna um [d]<br/>
-                                't{V} > d significa que um [t] numa sílaba tônica se transforma em [d]<br/>
-                                ºe{C}*{VA} > i significa que um [e] átono seguido de 0 ou n consoantes e de uma vogal anterior se transforma em [i]<br/>
-                                </p>
-
-                                <p>Em "Saída", ao final, há uma série de possibilidades ortográficas. As regras estão em apresentadas em Fonético > Ortográfico
+                            <div id="helpModal-text" class="modal-body" style="white-space: pre-line">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -239,13 +192,7 @@
     <script src="js/vendor/jquery-1.11.1.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/vendor/jquery-textrange.js"></script>
-    <script src="js/cadeia.js"></script>
-    <script src="js/conjunto.js"></script>
-    <script src="js/regra.js"></script>
-    <script src="js/regra-ambigua.js"></script>
-    <script src="js/silabas.js"></script>
-    <script src="js/fileutils.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/metaplasmador.min.js"></script>
 
     <script>
         $(document).ready(function(){

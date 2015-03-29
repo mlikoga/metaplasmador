@@ -156,20 +156,22 @@ Regra.prototype.aplicar = function (input) {
     var strOutput ='';
     var regexIdx = input.str.search(this.regex);
     var numMudancas = 0;
+    var cadeiaIdx = input.index;
     while (regexIdx >= 0 && numMudancas < input.str.length) { // Verifica se essa regra se aplica ou não
         strOutput += inputLeft.substring(0, regexIdx); // output recebe inicio do input que não foi modificado
         var strMatch = inputLeft.match(this.regex)[0]; // pega trecho do input que interessa
         var coreIdx = strMatch.search(this.patternCore); // pega indice do core (ATENCAO: aqui dá erro se prefixo contiver o core)
         var silabaIdx = input.encontrarSilabaIdx(strOutput.length + coreIdx);
         strMatch = strMatch.slice(0, coreIdx + this.patternCore.length); // Corta contexto (sufixo) fora
-        if (this.checarTonicidade(input, silabaIdx)) {
+        if (strOutput.length + coreIdx >= cadeiaIdx && this.checarTonicidade(input, silabaIdx)) {
             strOutput += strMatch.replace(this.patternCore, this.destino); // realiza a substituição na string
+            cadeiaIdx = strOutput.length + coreIdx + this.patternCore.length; // atualiza cadeiaIdx com length do que foi mudado
+            numMudancas++;
         } else {
             strOutput += strMatch; // Não realiza substituição.
         }
         inputLeft = inputLeft.substr(regexIdx + strMatch.length); // atualiza input a ser lido
         regexIdx = inputLeft.search(this.regex); // procura se existem mais aplicações para a regra
-        numMudancas++;
     }
     if (numMudancas == input.str.length) {
         console.error("LOOP INFINITO!! Regra: " + this.toString() + " Input: " + input);
