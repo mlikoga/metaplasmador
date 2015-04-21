@@ -183,7 +183,7 @@ Regra.prototype.aplicar = function (input) {
     output.silabaTonicaIdx = input.silabaTonicaIdx;
 
     if (numMudancas > 0) {
-        console.log(this + "\t" + output);
+        console.log(this + "\t" + output.str);
     }
     return output;
 
