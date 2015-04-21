@@ -90,6 +90,11 @@ QUnit.test( "Regra contexto {V}ll{V} > ", function( assert ) {
     assert.equal( regra.aplicar(criarCadeia(["clla","ma"])).imprimir(), "cllama" );
 });
 
+QUnit.test( "Regra contexto {V}$p{V} > ", function( assert ) {
+    var regra = new Regra("{V}$p{V}","$b");
+    assert.equal( regra.aplicar(criarCadeia(["a","pa","pa"])).imprimir(), "ababa" );
+});
+
 QUnit.test( "Regra contexto {V}{C}l > ", function( assert ) {
     var regra = new Regra("{V}{C}l","r");
     assert.equal( regra.aplicar(criarCadeia(["ablir"])).imprimir(), "abrir" );

@@ -37,12 +37,19 @@ Cadeia.prototype.encontrarSilabaIdx = function(charIdx) {
         return silabaIdx;
 }
 
+// Retorna string completa, com #,$ e '
 Cadeia.prototype.toFullString = function() {
     var silabas = this.str.replace(new RegExp(Cadeia.EMPTY_CHAR, 'gi'), '').split(Cadeia.SILABA_CHAR);
     silabas[this.silabaTonicaIdx] = Cadeia.TONICA_CHAR + silabas[this.silabaTonicaIdx];
     return Cadeia.EMPTY_CHAR + silabas.join(Cadeia.SILABA_CHAR2) + Cadeia.EMPTY_CHAR;
 }
 
+// Imprime palavra limpa, sem nenhum caractere especial
+Cadeia.prototype.imprimir = function() {
+    return this.str.replace(new RegExp('[#-]', 'gi'),'');
+}
+
+// Retorna string com tonica, mas sem # e $
 Cadeia.prototype.toString = function() {
     return this.toFullString().replace(new RegExp('[#-$]', 'gi'),'');
 };
@@ -51,6 +58,4 @@ Cadeia.prototype.equals = function(other) {
     return this.str == other.str;
 }
 
-Cadeia.prototype.imprimir = function() {
-    return this.str.replace(new RegExp('[#-]', 'gi'),'');
-}
+
