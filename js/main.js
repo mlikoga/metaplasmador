@@ -10,6 +10,8 @@ var _conjuntos = {}; // mapa nome -> elementos
 var _regrasOrto2Fone = [];
 var _regrasFone2Orto = [];
 
+var _detalhes = '';
+
 function inserirCaracter(button) {
     var inputTxt = $('#input');
     var cursorPos = inputTxt.textrange().position;
@@ -65,6 +67,7 @@ function lerRegras() {
     }
     _regrasOrto2Fone = parseRegras($('#orto2fone').val());
     _regrasFone2Orto = parseRegras($('#fone2orto').val());
+    _detalhes = '';
 }
 
 function parseRegras(text) {
@@ -134,6 +137,7 @@ function aplicarRegras() {
     var silabas = Silabas.encontrarTonica(Silabas.separar(strInput));
 
     var input = new Cadeia(silabas);
+    _detalhes += "-- Ortografico para Fonetico --<br />";
     var inputFoneticos = transformar(_regrasOrto2Fone, input);
     showInputs(input, inputFoneticos, silabas);
 
@@ -145,6 +149,8 @@ function aplicarRegras() {
 
     for (var s = 0; s < _sincronias.length; s++) {
         console.log("------ Sincronia " + s + " ------");
+        _detalhes += "-- S" + s + " --<br/>";
+
         var regras = _sincronias[s];
         // Auxliliares para não perder o controle da iteração 'i', pois os vetores mudam de tamanho.
         var auxOutputs = [];
@@ -172,6 +178,7 @@ function aplicarRegras() {
 
     // Transformar de volta
     var lastOutputsOrto = [];
+    _detalhes += "-- Fonetico para Ortografico --<br />";
     for (var i = 0; i < lastOutputs.length; i++) {
         lastOutputsOrto.push(transformar(_regrasFone2Orto, lastOutputs[i]));
     }
@@ -192,6 +199,7 @@ function aplicarRegras() {
     $('#fulloutput').html($('#fulloutput').html().replace(/\n/g,'<br/>'));
     $('#output').text(lastOutput);
     $('#output').html($('#output').html().replace(/\n/g,'<br/>'));
+    $('#divDetalhes').html(_detalhes);
 }
 
 // inOrto: string, inFone: array e silabas: array de Silaba

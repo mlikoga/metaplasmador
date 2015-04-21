@@ -50,7 +50,7 @@
 
                 <br />
                 <!--
-                <table class="table well" style="font-family: 'Voces', cursive;">
+                <table class="table well collapse detalhes" style="font-family: 'Voces', cursive;">
                     <tr><th scope="row" style="width: 1px;">Entrada:</td><td id="input-ortografico"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Sílabas:</td><td id="input-silabas"></td></tr>
                     <tr><th scope="row" style="width: 1px;">Fonético:</td><td id="input-fonetico"></td></tr>
@@ -63,9 +63,13 @@
                     <div style="clear: both"></div>
                 </div>
 
+                <button class="btn btn-info btn-xs" data-toggle="collapse" data-target=".detalhes" style="margin-bottom: 20px">Detalhes</button>
+                <div class="panel panel-info panel-collapse collapse detalhes" style="font-family: 'Voces', cursive; font-size: small">
+                    <div id="divDetalhes" class="panel-body"></div>
+                </div>
+
                 <div class="text-right">
-                    <button class="btn-circle" data-toggle="modal" data-target="#helpModal">
-                    </button>
+                    <button class="btn-circle" data-toggle="modal" data-target="#helpModal"></button>
                 </div>
                 <!-- Modal -->
                 <div id="helpModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -88,7 +92,7 @@
 
         <button class="btn btn-info" data-toggle="collapse" data-target="#divRegras" style="margin-bottom: 20px">Ver regras</button>
 
-        <div id="divRegras" class="panel collapse">
+        <div id="divRegras" class="panel-collapse collapse">
             <div class="row" style="font-family: 'Voces', cursive;">
                 <div class="col-md-2 col-sm-4">
                     <div class="panel panel-default">

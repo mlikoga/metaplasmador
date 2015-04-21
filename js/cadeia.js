@@ -19,6 +19,7 @@ function Cadeia(silabas) {
 
 Cadeia.EMPTY_CHAR = '#';
 Cadeia.SILABA_CHAR = '-';
+Cadeia.SILABA_CHAR2 = '$';
 Cadeia.TONICA_CHAR = '\u02c8';
 
 /**
@@ -36,10 +37,14 @@ Cadeia.prototype.encontrarSilabaIdx = function(charIdx) {
         return silabaIdx;
 }
 
-Cadeia.prototype.toString = function() {
-    var silabas = this.str.split(Cadeia.SILABA_CHAR);
+Cadeia.prototype.toFullString = function() {
+    var silabas = this.str.replace(new RegExp(Cadeia.EMPTY_CHAR, 'gi'), '').split(Cadeia.SILABA_CHAR);
     silabas[this.silabaTonicaIdx] = Cadeia.TONICA_CHAR + silabas[this.silabaTonicaIdx];
-    return silabas.join('').replace(new RegExp('[#-]', 'gi'),'');
+    return Cadeia.EMPTY_CHAR + silabas.join(Cadeia.SILABA_CHAR2) + Cadeia.EMPTY_CHAR;
+}
+
+Cadeia.prototype.toString = function() {
+    return this.toFullString().replace(new RegExp('[#-$]', 'gi'),'');
 };
 
 Cadeia.prototype.equals = function(other) {

@@ -181,9 +181,13 @@ Regra.prototype.aplicar = function (input) {
     var output = new Cadeia();
     output.str = strOutput;
     output.silabaTonicaIdx = input.silabaTonicaIdx;
+    output.log = input.log;
 
     if (numMudancas > 0) {
-        console.log(this + "\t" + output.str);
+        console.log(this + "\t" + output.toFullString());
+        if (typeof _detalhes !== 'undefined') {
+            _detalhes += input.toFullString() + " > " + output.toFullString() + " (" + this + ")<br/>";
+        }
     }
     return output;
 
