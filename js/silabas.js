@@ -15,6 +15,7 @@ var Silabas = Silabas || {};
 
 Silabas.acentoTonico = '\u02c8';
 Silabas.regexV = new RegExp('(ae|oe|au|æ|œ|a|e|i|o|u|y|ā|ă|ē|ĕ|ī|ĭ|ō|ŏ|ū|ŭ)', 'gi');
+Silabas.regexC = new RegExp('(b|c|d|f|g|h|k|l|m|n|p|q|r|s|t|x|z)', 'gi');
 Silabas.regexCC = new RegExp('(pl|pr|bl|br|tl|tr|dl|dr|cl|cr|gl|gr|ph|ch|th|rh|ps)', 'gi');
 Silabas.regexMacron = new RegExp('(ā|ē|ī|ō|ū)', 'gi'); // Vogais longas
 Silabas.regexBraquia = new RegExp('(ă|ĕ|ĭ|ŏ|ŭ)', 'gi'); // Vogais breves
@@ -88,7 +89,7 @@ Silabas.encontrarTonica = function(silabas) {
             silabas[silabas.length - 2].tonica = true;
         } else {
             var fimPalavra = penultima.substr(penultima.search(Silabas.regexV) + 1) + silabas[silabas.length - 1].str;
-            if (fimPalavra.search(Silabas.regexCC) == 0) { // Se é breve seguida de 2 consoantes.
+            if (fimPalavra.length > 1 && fimPalavra.search(Silabas.regexC) == 0 && fimPalavra.substr(1).search(Silabas.regexC) == 0) { // Se é breve seguida de 2+ consoantes.
                 silabas[silabas.length - 2].tonica = true;
             } else {
                 silabas[silabas.length - 3].tonica = true;
