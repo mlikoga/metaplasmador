@@ -1,73 +1,214 @@
-﻿ɐ̃p > amp
-ɐ̃b > amb
-ɐ̃# > ã
-ɐ̃ > an
+﻿h > r
+
+'a# > á
+'ɛ# > é
+'e# > ê
+'i# > i
+'ɔ# > ó
+'o# > ô
+'u# > u
+
+õj > õe
+
+iw# > io#
+iw# > iu#
+
+{C}u# > o
+{C}us# > o%
+{C}uʃ# > o%
+{C}i# > e
+{C}is# > e%
+{C}uʃ# > o%
+
+ə > e
+
+ɐ̃$i>a$i
+
+{V}s# > %#
+{V}s# > &#
+
+º{V}z > %
+
+{V}ʃ# > %#
+{V}ʃ# > &#
+ʃ# > %#
+
+tʃi# > te#
+dʒi# > de#
+
+tʃi > ti
+dʒi > di
+
+ti# > te#
+di# > de#
+
+=ɐ̃w# > am#
+
+ɐ$ʎ > e$lh
+ɐ$j > ei
+
+aj > ai
+aw > au
+ɐm > am
+ɐ$m > a$m
+ɐn{V} > an
+ɐ$n{V} > a$n
+ɐ$ʒ > e$ʒ
 ɐj > ei
-ɐ > a
-ŋ > n
-j > i
-w > u
-ɲ > nh
-ʎ > lh
-tʃ > t
-ʃ# > s
-ʃ$ > s
-ʒ$ > s
+ɐ̃${CB} > am$
+ɐ̃# > ã#
+ɐ̃w > ão
+ɐ̃j$ɐ̃j# > êm#
+ɐ̃js# > ãe%#
+ɐ̃jʃ# > ãe%#
+ɐ̃j# > ãe#
+ɐ̃j# > em#
+ɐ̃j${CB} > em$
+ɐ̃j > en
+ɐ̃ > an
+
 β > b
 β > v
-ʃ > x
-ʃ > ch
-ʒ{VA} > g
-ʒ{VA} > j
-ʒ > j
-{V}r{V} > rr
-ɾ > r
-ɻ > r
-{V}h{V} > rr
-{V}x{V} > rr
-{V}ʀ{V} > rr
-ʀ > r
-x > r
-h > r
-ẽp > emp
-ẽb > emb
+
+c > qu
+
+ʃ$s > %c
+
+ð > d
+
+ẽ${CB} > em$
+ẽ$ẽ# > êm
 ẽ# > em
 ẽ > en
-ĩp > imp
-ĩb > imb
+ɛ > e
+
+g{VA} > gu
+ɣ{VC} > g
+ɣ{VP} > g
+ɣ{VA} > gu
+
+h# > r
+h${C} > r
+{V}$h{V} > rr
+
+ĩ{CB} > im
+ĩ$# > im
 ĩ# > im
 ĩ > in
-õp > omp
-õb > omb
+j > i
+
+ʒ{VA} > j
+ʒ{VA} > g
+ʒ{VP} > j
+ʒ{VC} > j
+
+
+
+kw > qu
+kw > cu
+k{C} > c
+k{VP} > c
+k{VC} > c
+k{VA} > qu
+
+ł > l
+ʎ > lh
+
+ŋ > n
+ŋ > n
+
+oj > oi
+
+ow > ou
+õ{CB} > om
 õ# > om
-õ >on
-ũp > ump
-ũb > umb
+õ$ > on
+õn > on
+ɔw# > ol
+ɔ > o
+
+{V}$r{V} > rr
+{V}x{V} > rr
+{V}$h{V} > rr
+{V}$ʀ{V} > rr
+
+ɾ > r
+
+ɻ > r
+ʀ > r
+x > r
+
+ł > l
+ʎ > lh
+
+ʃ$ > %$
+$ʃ > $x
+$ʃ > $ch
+#ʃ > #x
+#ʃ > #ch
+j$ʃ > i$x
+
+{C}$s{VA} > $%
+{C}$s{VA} > $c
+
+{C}$s{VP} > $%
+{C}$s{VP} > $ç
+
+{C}$s{VC} > $%
+{C}$s{VC} > $ç
+
+{V}$s{VA} > $c
+{V}$s{VA} > $ss
+
+{V}$s{VP} > $ç
+{V}$s{VP} > $ss
+
+{V}$s{VC} > $ç
+{V}$s{VC} > $ss
+
+#s{VA} > c
+#s{VA} > %
+#s{VP} > %
+#s {VC}> %
+
+
+ũ{CB} > um
+ũ# > um
+ũ > unũ{CB} > um
 ũ# > um
 ũ > un
-ð > d
-ɣ > g
-ł > l
-{V}z̪{V} > s
-{V}z̪{V} > z
-{V}s̪{V} > ss
-{V}s̪{VA} > c
-{V}s̪{VP} > ç
-{V}s{V} > ss
-{V}z{V} > s
-{V}z{V} > z
-{V}s{VA} > c
-{V}s{VA} > ss
-{V}s{VP} > ç
-{V}s{VP} > ss
-#s̪{V} > s
-#s̪{VA} > c
-#s̪{VA} > s
-#s{V} > s
-#s{VA} > c
-#s{VA} > s
-s̪ > s
-z̪ > z
-z{C} > s
-z̪{C} > s
 
+{V}$z{V} > $&
+{V}$z{V} > $%
+
+ze# > $&e#
+ze# > $%e#
+
+z > %
+
+ɐ$ɲ > a$nh
+
+ɲ > nh
+w > u
+
+nn > n
+n$n > n
+tʃ > t
+dg > d
+nm > m
+mm> m
+np > mp
+nb > mb
+nz# > n%#
+{V}iz# > i%#
+{V}i$z{V} > i%
+{V}u$z{V} > u%
+wz# > u%#
+uʃ# > u%#
+{V}z# > %#
+{V}ʃ# > %#
+=us#>o%#
+
+& > z
+% > s
+õez > ões

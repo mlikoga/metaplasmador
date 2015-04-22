@@ -62,6 +62,12 @@ QUnit.test( "2 Regra ambiguas i > e; i > u", function( assert ) {
     assert.equal( outPi[1].imprimir(), "pu");
 });
 
+QUnit.test( "Regra perdendo sílaba $j > Q", function( assert ) {
+    var regra = new Regra("$j","Q");
+    assert.equal( regra.aplicar( criarCadeia(["ma","jo", "!ri", "num"])).toFullString(), "#maQo$ˈri$num#" );
+    assert.equal( regra.aplicar( criarCadeia(["!ma","jo", "ri", "num"])).toFullString(), "#ˈmaQo$ri$num#" );
+});
+
 QUnit.module("Conjuntos", {
     setup: function() {
         _conjuntos = {"V" : "a,e,i,o,u", "C" : "b,c,d,f,g,h,k,l,m,n,p,q,r,s,t,v,w,x,y,z"}; // Sem var para ser global

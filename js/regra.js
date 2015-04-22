@@ -5,6 +5,10 @@ function Regra(origem, destino) {
     this.origem = origem;
     this.patternCore = '';
     this.tonicidade = Regra.TIPOS.QUALQUER;
+    // Verifica se origem tem mais símbolos $ que destino. Se sim, a regra diminui o múmero de sílabas.
+    var findSilabaChar = new RegExp('\\' + Regra.SILABA_CHAR,'g');
+    this.perdeSilaba = ((origem.match(findSilabaChar) || []).length > (destino.match(findSilabaChar) || []).length);
+
     var pattern = '';
 
     // Parse da regra
@@ -81,7 +85,7 @@ function Regra(origem, destino) {
     }
 
     this.regex = new RegExp(pattern, 'i');
-    this.destino = destino.replace(new RegExp('\\' + Regra.SILABA_CHAR,'g'), Cadeia.SILABA_CHAR);
+    this.destino = destino.replace(findSilabaChar, Cadeia.SILABA_CHAR);
 }
 
 Regra.EMPTY_CHAR = '#';
@@ -156,6 +160,7 @@ Regra.prototype.aplicar = function (input) {
     var strOutput ='';
     var regexIdx = input.str.search(this.regex);
     var numMudancas = 0;
+    var silabaTonicaIdx = input.silabaTonicaIdx;
     //var cadeiaIdx = input.index;
     while (regexIdx >= 0 && numMudancas < input.str.length) { // Verifica se essa regra se aplica ou não
         strOutput += inputLeft.substring(0, regexIdx); // output recebe inicio do input que não foi modificado
@@ -165,6 +170,9 @@ Regra.prototype.aplicar = function (input) {
         strMatch = strMatch.slice(0, coreIdx + this.patternCore.length); // Corta contexto (sufixo) fora
         if (/*strOutput.length + coreIdx >= cadeiaIdx && */this.checarTonicidade(input, silabaIdx)) {
             strOutput += strMatch.replace(this.patternCore, this.destino); // realiza a substituição na string
+            if (this.perdeSilaba && silabaIdx < silabaTonicaIdx) {
+                silabaTonicaIdx = silabaTonicaIdx - 1;
+            }
             //cadeiaIdx = strOutput.length + coreIdx; // atualiza cadeiaIdx com length do que foi mudado
             numMudancas++;
         } else {
@@ -180,8 +188,7 @@ Regra.prototype.aplicar = function (input) {
 
     var output = new Cadeia();
     output.str = strOutput;
-    output.silabaTonicaIdx = input.silabaTonicaIdx;
-    output.log = input.log;
+    output.silabaTonicaIdx = silabaTonicaIdx;
 
     if (numMudancas > 0) {
         console.log(this + "\t" + output.toFullString());

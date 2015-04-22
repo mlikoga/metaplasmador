@@ -1,22 +1,178 @@
-﻿ãa > ɐ̃
-ãe > ɐ̃j
-ão > ɐ̃w
-ã > ɐ̃
-ẽa > ea
-ẽo > eo
-ẽei > ẽ
-ẽe > ẽ
-eĩa > ĩa
-eĩ > ĩ
-ĩe > ĩ
-ĩi > ĩ
-õa > oa
-õo > õ
-oj > oj
-oj > ow
-ow > ow
-ow > oj
-ũa > ua
-ũa > uma
-ũu > ũ
+﻿u$e > u$i
 
+ʃẽ${V} > ʃj
+
+ʃj > ʃ
+ʒj > ʒ
+
+a$on#> ã$o#
+
+'e${C}+{V-} > ɛ$
+
+ẽ$ɛ > ẽ$e
+ã$ɛ > a$e
+
+'e${C}+{V+} > i$
+'o${C}+{V+} > u$
+
+=i# > #
+
+#ºe$ > #i$
+
+#aw$s̪t > #as̪$t
+
+an# > ã#
+en# > ẽ#
+in# > ĩ#
+on# > õ#
+un# > ũ#
+
+ãn# > ã#
+ẽn# > ẽ#
+ĩn# > ĩ#
+õn# > õ#
+ũn# > ũ#
+
+a$a> a
+
+'ã$a > ɐ̃$a
+-ã$a > a$a
+=ã$a > ɐ̃$a
+=ã$a > a$a
+
+
+a$en > e$en
+a$e > ɛ$ɛ
+a$e > aj$
+a$ɔ > ɔ$ɔ
+ã$ɛ > ɛ$ɛ
+
+a$des̪# > a$es̪#
+{C}e$des̪# > ejs̪#
+{C}i$des̪# > is̪#
+
+$n${C} > n$
+
+an$ > ãn$
+an# > ãw#
+en$ > ẽn$
+in$ > ĩn$
+on$ > õn$
+un$ > ũn$
+
+$m${C} > m$
+
+am$ > ãm$
+em$ > ẽm$
+im$ > ĩm$
+om$ > õm$
+um$ > ũm$
+
+$ŋ${C} > ŋ$
+
+aŋ$ > ãŋ$
+eŋ$ > ẽŋ$
+iŋ$ > ĩŋ$
+oŋ$ > õŋ$
+uŋ$ > ũŋ$
+
+a$o > aw
+
+'ã$e > ɐ̃j
+
+-ã$e > a$e
+=ã$e > ẽ$e
+ã$ɛ$l > ɛ$ɛ$l
+ºã$ɛ > ẽ$e
+
+a$õ > o$õ
+ã$o > ɐ̃w
+ã > ɐ̃
+
+e$'e > i$'e
+e$'ɛ > i$'ɛ
+e$i > i$i
+
+e$ẽ > ẽ$e
+ẽei > ẽ
+
+ẽ$e$ɾ# > e$e$ɾ#
+ẽ$e$ɾ > ẽ$r
+
+ẽ$e$ > ẽ$
+ẽ$e# > ẽ#
+ẽ$es̪# > ẽs̪#
+ẽ$en# > ẽ$ẽ#
+
+ẽ$e > e$e
+ẽ$a > e$a
+ẽ$o > e$o
+ẽ$u > e$u
+
+e$'ĩ{V} > e$i$ɲ
+'e$ĩ > ĩ
+
+ẽ$aɾ# > e$ɲaɾ#
+ẽ$aɾ# > i$ɲaɾ#
+ẽ$aɾ# > e$aɾ#
+
+ẽ$ej >ĩ$ej
+
+e$es̪# > ejs̪#
+ɛ$es̪# > ɛjs̪#
+ɛ$e > ɛ
+ɛ$o > ɛw
+
+i$es̪#> is̪#
+i$ĩ > ĩ
+ĩ$ej > i$ɲej
+ĩ$e > ĩ
+ĩ$iɾ > i$iɾ
+ĩ$i > ĩ
+ĩ$a > i$ɲa
+ĩ$o > i$ɲo
+
+
+õ$a > o$a
+
+'õ$o > õ
+=õ$o > o$o
+
+'õ$e >õj
+ºõ$e >o$e
+
+õ$ɛ > o$ɛ
+õ$u > õ
+o$u# > ow#
+o$us̪# > ows̪#
+o$o > o
+
+ow${CV} > ow$
+ow${CV} > oj$
+
+u$e > uj
+ũ$a > u$a
+ũ$a > u$ma
+ũ$o > ũ
+ũ$u > ũ
+u$u > u
+
+vj > jv
+tj > ts
+
+w$i > w$vi
+w$a > w$va
+w$i > $i
+w$a > $a
+
+ɔ$oɾ# > ɔɾ#
+ɔ$o > ɔ
+
+z̪# > s̪#
+
+ºow > o
+ºow > ow
+
+o$a$>o$o$
+ɛ$a > ɛ$e
+ẽ$i${CN} > ej$

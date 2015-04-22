@@ -1,68 +1,147 @@
-﻿rr > r
-r > ɾ
-ɛ{V} > j
-e{V} > j
-i{V} > j
-ɔ{V} > w
-o{V} > w
-u{V} > w
-dw > dv
-lw > lv
-nw > n
-ɾW > ɾ
+﻿aɟ$z > aɟ$s
+
 tw > t
-bl > bʎ
-kl > cʎ
-fl > fʎ
-gl > gł
-pl > pʎ
+or# > ro#
+$j{VA} > 
+
+b$t > $t
+b$v > v$v
+g$d>l$d 
+g$m> w$m
+g$m> ɟ$m
+d$k > $k
+d$m > $m
+d$v > v$v
+
+ðr > r$r
+ðr > jr
+r$ð > r$
+dl > dr
+dl > ll
+
+al$d> al$$d
+l$d > ł$d
+l$d > j$d
+l$$d > ł$d
+
+al$t> al$$t
+l$t > ł$t
+l$t > j$t
+l$$t > ł$t
+
+aw > ɔw
+
+{VP}ɟ$t > w$t
+{VP}ɟ$t > $t
+{VC}ɟ$t > w$t
+{VC}ɟ$t > $t
+
+ºʊ${V}> w
+
+n$dg > ŋ$g
+dg > $g
+
+ɪ$dja> ɪ$dja
+ɪ$dja > itja
+
+-o$re > $re
+j$re > jo$re
+
+-ne${C} > nɪ$
+-e$re > $re
+-e$ra > $ra
+-e$ra > e$ra
+
+#pʎ > #tʎ
+pl > pɾ
+pʎ > tʎ
+
+#fʎ > #tʎ
+fl > fɾ
+fʎ > tʎ
+
+#kʎ > #tʎ
+kl > gɾ
+kʎ > tʎ
+
+r > ɾ
+ɾ$ɾ > $r
+#ɾ > r
+
+ɣɾ > j$ɾ
+ɣɾ > $gɾ
+
+łl > l$l
 llj > lj
-lnj > nj
-mn > nn
-mnj > nj
-mpt > nt
-mt > nt
-nn > nn
-nn > ɲ
-nf > f
-ns > z̪
-{V}kl{V} > ɟʎ
-{V}kl{V} > ɟɾ
-{V}tl{V} > dʎ
-{V}tl{V} > dɾ
-{V}gl{V} > ɟʎ
-{V}gl{V} > ɟɾ
-{V}kl{V} > ʎ
-{V}cl{V} > ʎ
-{V}β{V} > 
-{V}ð{V} > 
-{V}ɟ{VA} > 
-{V}g{VP} > ɣ 
-{V}pɾ{V} > bɾ
-{V}bɾ{V} > βɾ
-{V}p{V} > b
-{V}t{V} > d
-{V}k{VA} > dz
-{V}k{VP} > g
-cj > tj
-{V}dɾ{V} > ɾ
-dj > ɟ
-{V}f{V} > β
-ps̪ > s̪
-{VA}pt > ft
-{VP}pt > ɟt
-pt > t
-{V}kw{V} > gw
-ɾs̪ > s̪
-{#}s̪{c} > es̪
-{V}tj{V} > dj
-{V}tɾ{V} > dɾ
-cs̪{C} > s̪
-cs̪ > ɟs̪
-{V}s̪k{V} > s̪c
-l# > ł
-ll > ll
-l{CO} > ł
-l{CN} > ł
-l{CF} > ł
-ll > ʎ
+ł$nj > $nj
+
+m$nj > $nj
+m$n > m$n
+m$n > n$n
+
+ɟ$ɲ > $ɲ
+
+β$t > wt
+ɟ$t > j$t
+ɟ$z > j$z
+
+ɲ$ɟ > n$dz
+
+{V}$ɟ{VA}# > $ḡ
+{V}$ɟ{VA} > $ɟ
+{V}$ɟ{VA} > $
+{C}$ɟ{VA} > $dz
+ḡ >ɟ
+
+ɲ$ɟʎ > ɲ$ʎ
+$ɟʎ > $ʎ
+
+cj > tsj
+c > ts
+
+n$dj > n$nj
+n$dj > n$tsj
+
+$dj > $dzj
+$dj > $tsj
+
+de${V} > dj
+di${V} > dj
+dɛ${V} > dj
+
+ðj > ɟ
+
+a$ɪ> aj
+a$ɪ> a$e
+a$o > aw
+ɛ$a > i$a
+
+$sɟ > $sj
+ɟ$s>j$s
+
+ºi$vi > i$vi
+ºi$vi > iw$
+ºi$vi > i$i
+
+ºi$vɪ > i$vɪ
+ºi$vɪ > iw$
+ºi$vɪ > i$i
+
+ºɪ$vɪ > ɪ$vɪ
+ºɪ$vɪ > iw$
+ºɪ$vɪ > i$i
+
+ºɪ$vi > ɪ$vi
+ºɪ$vi > iw$
+ºɪ$vi > i$i
+
+{V}$ve > $e
+
+i$vʊ# > i$vʊ#
+i$vʊ# > i$ʊ#
+
+m$t > n$t
+m$pt > n$t 
+tm > m
+tg > k
+v$v > v

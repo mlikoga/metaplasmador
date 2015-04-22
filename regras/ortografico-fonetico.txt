@@ -1,28 +1,37 @@
-﻿ph > pʰ
-ch > kʰ
-rh > rʰ
-th > tʰ
-ā > a:
+﻿ā > a:
 ă > a
 ē > e:
 ĕ > e
-ō > o:
-ŏ > o
 ī > i:
 ĭ > i
+ō > o:
+ŏ > o
 ū > u:
 ŭ > u
+
 æ > aj
 ae > aj
 au > aw
-œ > ø
-oe > ø
+œ > oj
+oe > oj
 oë > oe
+
+nc$ > ŋ$k
+n$c > ŋ$k
+
+ch > kʰ
+c > k
+gu{V} > gʷ
+n$f > m$ɸ 
 f > ɸ
-v > w
-nc > ŋk
-c >k
-ng > ŋg
-q > k
+n$g > ŋ$g
+ph > pʰ
+{V}$ps > $ps̪
+qu{V} > kʷ
+rh > rʰ
+s > s̪
+th > tʰ
+x# > ks#
 x > ks
-z > dz
+v > w
+z > ts
