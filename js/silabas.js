@@ -16,8 +16,8 @@ var Silabas = Silabas || {};
 Silabas.acentoTonico = '\u02c8';
 Silabas.regexV = new RegExp('(ae|oe|au|æ|œ|a|e|i|o|u|y|ā|ă|ē|ĕ|ī|ĭ|ō|ŏ|ū|ŭ)', 'gi');
 Silabas.regexCC = new RegExp('(pl|pr|bl|br|tl|tr|dl|dr|cl|cr|gl|gr|ph|ch|th|rh|ps)', 'gi');
-Silabas.regexMacron = new RegExp('(ā|ē|ī|ō|ū)', 'gi');
-Silabas.regexBraquia = new RegExp('(ă|ĕ|ĭ|ŏ|ŭ)', 'gi');
+Silabas.regexMacron = new RegExp('(ā|ē|ī|ō|ū)', 'gi'); // Vogais longas
+Silabas.regexBraquia = new RegExp('(ă|ĕ|ĭ|ŏ|ŭ)', 'gi'); // Vogais breves
 
 Silabas.separar = function(input) {
     var silabas = [];
@@ -81,16 +81,18 @@ Silabas.encontrarTonica = function(silabas) {
         return silabas;
     }
     if (silabas.length <= 2) {
-        //silabas[0].str = Silabas.acentoTonico + silabas[0].str;
         silabas[0].tonica = true;
     } else {
         var penultima = silabas[silabas.length - 2].str;
-        if (penultima.search(Silabas.regexMacron) > -1) {
-            //silabas[silabas.length - 2].str = Silabas.acentoTonico + silabas[silabas.length - 2].str;
+        if (penultima.search(Silabas.regexMacron) > -1) { // Longas
             silabas[silabas.length - 2].tonica = true;
         } else {
-            //silabas[silabas.length - 3].str = Silabas.acentoTonico + silabas[silabas.length - 3].str;
-            silabas[silabas.length - 3].tonica = true;
+            var fimPalavra = penultima.substr(penultima.search(Silabas.regexV) + 1) + silabas[silabas.length - 1].str;
+            if (fimPalavra.search(Silabas.regexCC) == 0) { // Se é breve seguida de 2 consoantes.
+                silabas[silabas.length - 2].tonica = true;
+            } else {
+                silabas[silabas.length - 3].tonica = true;
+            }
         }
     }
 
