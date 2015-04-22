@@ -169,7 +169,8 @@ function aplicarRegras() {
 
             auxOutputs = auxOutputs.concat(inputAtual);
             for (var k = 0; k < inputAtual.length; k++) {
-                auxFullOutputs.push(fullOutputs[i].concat(' > *[',  inputAtual[k].toString(), ']'));
+                var simbolo = s > 0 ? '>' : '≈';
+                auxFullOutputs.push(fullOutputs[i].concat(' ' + simbolo + ' *[',  inputAtual[k].toString(), ']'));
             }
         }
         lastOutputs = auxOutputs;
