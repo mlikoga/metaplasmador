@@ -7,7 +7,7 @@ function Regra(origem, destino) {
     this.tonicidade = Regra.TIPOS.QUALQUER;
     // Verifica se origem tem mais símbolos $ que destino. Se sim, a regra diminui o múmero de sílabas.
     var findSilabaChar = new RegExp('\\' + Regra.SILABA_CHAR,'g');
-    this.perdeSilaba = ((origem.match(findSilabaChar) || []).length > (destino.match(findSilabaChar) || []).length);
+    this.variacaoSilabica =  (destino.match(findSilabaChar) || []).length - (origem.match(findSilabaChar) || []).length;
 
     var pattern = '';
 
@@ -170,8 +170,8 @@ Regra.prototype.aplicar = function (input) {
         strMatch = strMatch.slice(0, coreIdx + this.patternCore.length); // Corta contexto (sufixo) fora
         if (/*strOutput.length + coreIdx >= cadeiaIdx && */this.checarTonicidade(input, silabaIdx)) {
             strOutput += strMatch.replace(this.patternCore, this.destino); // realiza a substituição na string
-            if (this.perdeSilaba && silabaIdx < silabaTonicaIdx) {
-                silabaTonicaIdx = silabaTonicaIdx - 1;
+            if (this.variacaoSilabica != 0 && silabaIdx < silabaTonicaIdx) {
+                silabaTonicaIdx = silabaTonicaIdx + this.variacaoSilabica;
             }
             //cadeiaIdx = strOutput.length + coreIdx; // atualiza cadeiaIdx com length do que foi mudado
             numMudancas++;

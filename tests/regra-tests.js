@@ -68,6 +68,18 @@ QUnit.test( "Regra perdendo sílaba $j > Q", function( assert ) {
     assert.equal( regra.aplicar( criarCadeia(["!ma","jo", "ri", "num"])).toFullString(), "#ˈmaQo$ri$num#" );
 });
 
+QUnit.test( "Regra perdendo 2 sílabas $j > Q", function( assert ) {
+    var regra = new Regra("a$e$i","a");
+    assert.equal( regra.aplicar( criarCadeia(["ma","e", "!ir"])).toFullString(), "#ˈmar#" );
+    assert.equal( regra.aplicar( criarCadeia(["!ma","e", "ir"])).toFullString(), "#ˈmar#" );
+});
+
+QUnit.test( "Regra ganhando sílaba j > i$l", function( assert ) {
+    var regra = new Regra("j","i$l");
+    assert.equal( regra.aplicar( criarCadeia(["ma","jo", "!ri", "num"])).toFullString(), "#ma$i$lo$ˈri$num#" );
+    assert.equal( regra.aplicar( criarCadeia(["!ma","jo", "ri", "num"])).toFullString(), "#ˈma$i$lo$ri$num#" );
+});
+
 QUnit.module("Conjuntos", {
     setup: function() {
         _conjuntos = {"V" : "a,e,i,o,u", "C" : "b,c,d,f,g,h,k,l,m,n,p,q,r,s,t,v,w,x,y,z"}; // Sem var para ser global
