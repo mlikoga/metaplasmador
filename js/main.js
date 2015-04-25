@@ -137,7 +137,7 @@ function aplicarRegras() {
     var silabas = Silabas.encontrarTonica(Silabas.separar(strInput));
 
     var input = new Cadeia(silabas);
-    _detalhes += "-- Ortografico para Fonetico --<br />";
+    _detalhes += "-- Ortogr&aacute;fico para Fon&eacute;tico --<br />";
     var inputFoneticos = transformar(_regrasOrto2Fone, input);
     showInputs(input, inputFoneticos, silabas);
 
@@ -179,7 +179,7 @@ function aplicarRegras() {
 
     // Transformar de volta
     var lastOutputsOrto = [];
-    _detalhes += "-- Fonetico para Ortografico --<br />";
+    _detalhes += "-- Fon&eacute;tico para Ortogr&aacute;fico --<br />";
     for (var i = 0; i < lastOutputs.length; i++) {
         lastOutputsOrto.push(transformar(_regrasFone2Orto, lastOutputs[i]));
     }

@@ -206,3 +206,15 @@ QUnit.test( "Postonica", function( assert ) {
     assert.equal( regra.aplicar(criarCadeia(["ti","!mi","lis"])).imprimir(), "timiles" );
     assert.equal( regra.aplicar(criarCadeia(["ti","mi","!lis"])).imprimir(), "timilis" );
 });
+
+QUnit.test( "Tonica no final da palavra", function( assert ) {
+    var regra = new Regra("\'o#","u");
+    assert.equal( regra.aplicar(criarCadeia(["u","ru", "!bo"])).imprimir(), "urubu" );
+    assert.equal( regra.aplicar(criarCadeia(["!lo","bo"])).imprimir(), "lobo" );
+});
+
+QUnit.test( "Atona no final da palavra", function( assert ) {
+    var regra = new Regra("ºu#","o");
+    assert.equal( regra.aplicar(criarCadeia(["u","ru", "!bu"])).imprimir(), "urubu" );
+    assert.equal( regra.aplicar(criarCadeia(["!lo","bu"])).imprimir(), "lobo" );
+});

@@ -34,6 +34,7 @@ function Regra(origem, destino) {
                 this.tonicidade = Regra.TIPOS.ATONA;
                 break;
             case Regra.TONICA:
+            case Regra.TONICA2:
                 this.tonicidade = Regra.TIPOS.TONICA;
                 break;
             case Regra.PRETONICA:
@@ -95,6 +96,7 @@ Regra.CJ_END   = '\}';
 Regra.ANY_QTY_CHAR = '*';
 Regra.ONE_MORE_CHAR = '+';
 Regra.TONICA = '\u02c8';
+Regra.TONICA2 = '\'';
 Regra.ATONA = 'º';
 Regra.PRETONICA = '-';
 Regra.POSTONICA = '=';
