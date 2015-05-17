@@ -137,14 +137,15 @@ function aplicarRegras() {
     var silabas = Silabas.encontrarTonica(Silabas.separar(strInput));
 
     var input = new Cadeia(silabas);
-    _detalhes += "-- Ortogr&aacute;fico para Fon&eacute;tico --<br />";
+    _detalhes += "-- Latim Cl&aacute;ssico --<br />";
     var inputFoneticos = transformar(_regrasOrto2Fone, input);
     showInputs(input, inputFoneticos, silabas);
 
     var lastOutputs = inputFoneticos;
-    var fullOutputs = [];
+    var fullOutputs = []; // Vetor de vetores. Cada elemento é um vetor com 1 sequência de saída.
     for (var i = 0; i < inputFoneticos.length; i++) {
         fullOutputs.push('*[' + inputFoneticos[i].toString() + ']');
+        //fullOutputs.push([inputFoneticos[i]]);
     }
 
     for (var s = 0; s < _sincronias.length; s++) {
@@ -178,8 +179,9 @@ function aplicarRegras() {
     }
 
     // Transformar de volta
+    // MUDANÇA: devemos tranformar a penúltima sincronia, não a última...
     var lastOutputsOrto = [];
-    _detalhes += "-- Fon&eacute;tico para Ortogr&aacute;fico --<br />";
+    _detalhes += "-- Ortografia --<br />";
     for (var i = 0; i < lastOutputs.length; i++) {
         lastOutputsOrto.push(transformar(_regrasFone2Orto, lastOutputs[i]));
     }

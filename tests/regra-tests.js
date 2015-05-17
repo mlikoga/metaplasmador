@@ -119,8 +119,20 @@ QUnit.test( "Regra contexto {V}{C}l > ", function( assert ) {
     assert.equal( regra.aplicar(criarCadeia(["ail"])).imprimir(), "ail" );
 });
 
+QUnit.test( "Regra contexto #{V}l > ", function( assert ) {
+    var regra = new Regra("#{V}l","u");
+    assert.equal( regra.aplicar(criarCadeia(["!alto"])).toFullString(), "#ˈauto#" );
+    assert.equal( regra.aplicar(criarCadeia(["!malta"])).toFullString(), "#ˈmalta#" );
+    assert.equal( regra.aplicar(criarCadeia(["!clave"])).toFullString(), "#ˈclave#" );
+});
+
+QUnit.test( "Regra duplicação de # #p > #b", function( assert ) {
+    var regra = new Regra("#p","#b"); // Essa regra deveria ser #p > b
+    assert.equal( regra.aplicar(criarCadeia(["!po", "la"])).str, "#bo-la#" );
+});
+
 QUnit.test( "Regra contexto {V}{C}a${C}{V} > ", function( assert ) {
-    var regra = new Regra("{C}{V}a${C}{V}","e");
+    var regra = new Regra("{C}{V}a${C}{V}","e$");
     assert.equal( regra.aplicar(criarCadeia(["koa", "la"])).imprimir(), "koela" );
     assert.equal( regra.aplicar(criarCadeia(["koala"])).imprimir(), "koala" );
     assert.equal( regra.aplicar(criarCadeia(["koa", "ui"])).imprimir(), "koaui" );

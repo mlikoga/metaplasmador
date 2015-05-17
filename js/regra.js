@@ -79,6 +79,8 @@ function Regra(origem, destino) {
                 this.patternCore += Cadeia.SILABA_CHAR;
                 break;
             case Regra.EMPTY_CHAR:
+                pattern += char;
+                break;
             default:
                 pattern += char;
                 this.patternCore += char;
@@ -86,7 +88,9 @@ function Regra(origem, destino) {
     }
 
     this.regex = new RegExp(pattern, 'i');
-    this.destino = destino.replace(findSilabaChar, Cadeia.SILABA_CHAR);
+    // Destino
+    this.destino = destino.replace(findSilabaChar, Cadeia.SILABA_CHAR); // Troca o símbolo de separação de sílabas
+    this.destino = this.destino.replace(Regra.EMPTY_CHAR, ''); // Limpa caracteres não permitidos do destino
 }
 
 Regra.EMPTY_CHAR = '#';
