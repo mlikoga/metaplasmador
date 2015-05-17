@@ -1,6 +1,27 @@
-- Podem haver 2 ou mais regras com mesmos símbolos de origem mas diferentes resultados. Nesse caso, as duas opções de saída são apresentadas.
-- Regras tem ordem de preferência de cima para baixo. Então, pode se criar duas regras com mesma origem principal, mas contextos diferentes.
-Nesse caso, o contexto mais específico deve ficar em cima. Exemplo:
-  1. pl{V} -> ch
-  2. pl -> x
+============
+== Regras ==
+============
+
+As regras são produções da forma: origem > destino
+A origem tem 2 componentes: contexto e núcleo.
+São elementos de contexto:
+- Conjuntos: {}
+- Marcador de início ou fim de palavra: #
+- Símbolos de tonicidade: ',º,-,=,-!,=!,--,==
+- Quantificadores: *,+
+
+O núcleo é composto por todos os outros caracteres que não compoem o contexto.
+Tipicamente são as letras e marcadores de separação de sílabas ($).
+
+Propriedades das regras:
+a. O núcleo deve ser composto por um único bloco contínuo, i.e., não pode ser separado por elementos de contexto. Exemplo: "e{C}i > e" não é uma regra válida.
+b. Somente a origem pode conter elementos de contexto, o destino não.
+c. Pode haver 2 ou mais regras com mesmos símbolos de origem e diferentes destinos. Nesses casos, as duas opções de saída são apresentadas (uma ramificação é criada: cada entraad gera duas saídas).
+d. Regras tem ordem de preferência de cima para baixo. Então, pode-se criar duas regras com mesmo núcleo, mas contextos diferentes.
+   Nesse caso, o contexto mais específico deve ficar em cima. Exemplo:
+   1. pl{V} -> ch
+   2. pl -> x
+e. Cada regra pode conter no máximo um símbolo de tonicidade, que se refere sempre à primeira sílaba do núcleo.
+f. Quantificadores devem vir sempre após um conjunto.
+g. Espaços em branco e colchetes [] não influenciam nas regras e podem ser inseridos a vontade.
 

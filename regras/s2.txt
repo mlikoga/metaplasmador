@@ -1,4 +1,55 @@
-﻿a$dɾe# > a$ðe#
+﻿bʎ > βl
+
+n$tʎ > n$tʃ
+
+#ej$z> #e$z
+#ej$z> #i$z
+
+=gwo > go
+ʊn# > on#
+
+ɪŋ$gw > iŋgw
+ɪŋ$gw > eŋgw
+
+ɪn$d > en$d
+ɪn$d > in$d
+
+gwe > ge
+gwɪ > ge
+gwi > gi
+
+ɪŋ$g > iŋ$g
+
+
+a$jɪ > a$e
+
+ɪŋ$k > iŋ$k
+
+j$sw > w$sj
+w$sj > w$ʃj
+
+n$tsj > n$tʃj
+s̪$tsj > $tʃj
+ɾ$tsj > $tʃj
+
+ɪj$ > i$
+ɪ$j > i
+
+ɪ$g > ɪ$g
+ɪ$g > i$g
+
+#in${C} > #in$
+#in${C} > #en$
+
+#uł{C} > #ul$
+#uł${C} > #uɾ$
+
+s̪$tsj > $s̪j
+
+ɾ$dzj > ɾ$dʒ
+{V}$dzj > j$dz
+
+a$dɾe# > a$ðe#
 
 ɟ$ɾ> j$ɾ
 ee > e
@@ -14,16 +65,27 @@ $j{V} > $ʒ
 ɛ${C}+{V+} > ɛ$
 ɛ${C}+{V+} > e$
 
+e${C}+{I} > i$
+
 o${C}+{V+} > o$
 o${C}+{V+} > u$
 
 ɔ${C}+{V+} > ɔ$
 ɔ${C}+{V+} > o$
+ɔ${C}+{V+} > u$
 
-sje > s$tse
-sje > $tse
-sjɪ# > s$tsɪ#
-sjɪ# > $tsɪ#
+
+ɔɾ${C}+{V+} > ɔɾ$
+ɔɾ${C}+{V+} > oɾ$
+
+ʊɾ${C}+{V+} > uɾ$
+
+$sje > s$tse
+$sje > $tse
+as$tse> a$sje
+
+$sjɪ# > s$tsɪ#
+$sjɪ# > $tsɪ#
 
 m$n > $m
 #ʊ{CN} > #u
@@ -32,11 +94,17 @@ m$n > $m
 ɪ$w > ij
 ɪ$j > i$
 
-ɪ{CN} > i
+#ɪŋ > eŋ
+#ɪŋ > iŋ
+ɪ$n > i$n
+ɪ$m > i$m
 
 i$w > iw
 i$w > ij
 i$j > i$
+ɪ$ɲ > ɪ$ɲ
+ɪ$ɲ > i$ɲ
+
 
 dɟ > $dz
 lɪ${V} > lj
@@ -79,6 +147,7 @@ w$g > ł$g
 tʎ > ʎ
 dʎ > ʎ
 
+bʎ > ʎ
 bl > bɾ
 bl > l$l
 
@@ -87,6 +156,10 @@ gl > gɾ
 
 nj > ɲ
 lj > ʎ
+l$ʎ > ʎ
+ɪ$ʎ > e$ʎ
+ɪ$ʎ > i$ʎ
+
 
 n$dz > n$dʒ
 ɟ$z̪ > j$ʒ
@@ -103,14 +176,15 @@ $ɟi > $dʒi
 $ɟɪ > $dʒi
 $ɟɪ > $dʒe
 ɟ$d > $dz
-$ɟi# > $dzi#
 
+$ɟi# > $dzi#
 $ɟi > $dzi
+
+{V}$ɟ{V} > $dj
+{V}$ɟ{V} > $dʒ
+
 $ɟ > $dʒ
 #ɟ > #dʒ
-
-
-ɪŋ > iŋ
 
 ʊ${CP} > u
 ʊ${CP} > o
@@ -125,8 +199,12 @@ $ɟ > $dʒ
 
 #dj > #dʒ
 
+s̪$tj > s̪$tj
+s̪$tj > s̪$tʃ
+
+
 $tsj> $ts
-$dzj > $dz
+$tsj> $tʃ
 
 $bw > w$b
 $βw > w$v
@@ -152,23 +230,26 @@ c > ts
 
 ɛɾ$tj >eɾ$ts
 ɔɾ$tj >oɾ$ts
-$tj > $ts
-
+{V}$tj > $ts
 
 {C}$s̪e# > s̪#
 e$s̪e# > e$s̪ë#
 {V}$s̪e# > s̪#
 ë > e
 
-{V}$z̪e# > z̪#
 {V}$z̪e# > z̪e#
+{V}$z̪e# > z̪#
 
+{V}$tse# > $se#
 {V}$tse# > s#
 
-$dze# > ze#
+$dze# > $ze#
 $dze# > z#
 
 {V}$ne# > n#
+
+{V}$βe# > $βe#
+{V}$βe# > w#
 
 d$j > $dʒ
 
@@ -185,18 +266,21 @@ $lë# > le#
 a$eɾ# > a$aɾ#
 
 aw > ɔw
-ɔw$t > ɔw$t
-ɔw$t > aw$t
+#ɔw$t > #ɔw$t
+#ɔw$t > #aw$t
 
 aj$ > ɛj$
 
 $sj > j$ʃ
-j$s> j$ʃ
+{V}j$s> j$ʃ
+#ej$ʃ > #ej$ʃ 
+#ej$ʃ > #ej$s
 
 o$wa > o$a
 uwo > o$o
 
 $ð > $
+
 n$m > ł$m 
 
 e$ɣa > e$ga
@@ -218,6 +302,26 @@ e$dʒi > i$dʒi
 o$dʒi > u$dʒi
 
 $j{V} > $dʒ
+d$dʒ > $dʒ
 
 $βja > $βja
 $βja > $dʒa
+
+uj$dz > u$dz
+ij$dz > i$dz
+ɪj$dz > i$dz
+ej$dz > e$dz
+ɛj$dz > i$dz
+aj$dz > a$dz
+aj$dz > ɛ$dz
+
+e$u > i$u
+ɲ$dʒ > n$dʒ
+
+$$>$
+sw > w$s
+{V}$gwa > $gwa
+{V}$gwa > w$ga
+vw > w$v
+zj > ʒj
+ºin# > en#

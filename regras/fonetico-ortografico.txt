@@ -1,4 +1,23 @@
-﻿h > r
+﻿ẽ# > em#
+ɐ̃j > em#
+ɐ̃j > ãe#
+
+
+=ẽ > em
+=ɐ̃j > em
+
+õ# > ão#
+o$e > oj
+
+=ju > io
+=ju > eo
+
+=u > o
+
+=ja > ia
+=ja > ea
+
+h > r
 
 'a# > á
 'ɛ# > é
@@ -53,8 +72,9 @@ aw > au
 ɐ$m > a$m
 ɐn{V} > an
 ɐ$n{V} > a$n
-ɐ$ʒ > e$ʒ
 ɐj > ei
+ɐ$ʃ>e$x
+ɐ$ʒ > e$ʒ
 ɐ̃${CB} > am$
 ɐ̃# > ã#
 ɐ̃w > ão
@@ -78,8 +98,7 @@ c > qu
 
 ẽ${CB} > em$
 ẽ$ẽ# > êm
-ẽ# > em
-ẽ > en
+=ẽ# > em
 ɛ > e
 
 g{VA} > gu
@@ -91,7 +110,7 @@ h# > r
 h${C} > r
 {V}$h{V} > rr
 
-ĩ{CB} > im
+ĩ${CB} > im
 ĩ$# > im
 ĩ# > im
 ĩ > in
@@ -136,7 +155,6 @@ ow > ou
 
 ɻ > r
 ʀ > r
-x > r
 
 ł > l
 ʎ > lh
@@ -212,3 +230,12 @@ uʃ# > u%#
 & > z
 % > s
 õez > ões
+
+=az# > as#
+=ez# > es#
+=iz# > is#
+=oz# > os#
+=uz# > us#
+
+ẽm > em
+ẽn > en

@@ -75,7 +75,7 @@ function parseRegras(text) {
     var regexSpaces = new RegExp('[ \\[\\]\r\n]', 'g');
     var lines = text.split('\n')
     for (var j = 0; j < lines.length; j++) {
-        var line = lines[j].replace(regexSpaces, '');
+        var line = lines[j].replace(regexSpaces, ''); // Limpa caracteres inúteis da regra
         if (!line || 0 === line.length)
             continue;
 
@@ -144,8 +144,8 @@ function aplicarRegras() {
     var lastOutputs = inputFoneticos;
     var fullOutputs = []; // Vetor de vetores. Cada elemento é um vetor com 1 sequência de saída.
     for (var i = 0; i < inputFoneticos.length; i++) {
-        fullOutputs.push('*[' + inputFoneticos[i].toString() + ']');
-        //fullOutputs.push([inputFoneticos[i]]);
+        //fullOutputs.push('*[' + inputFoneticos[i].toString() + ']');
+        fullOutputs.push([ inputFoneticos[i] ]);
     }
 
     for (var s = 0; s < _sincronias.length; s++) {
@@ -156,8 +156,8 @@ function aplicarRegras() {
         // Auxliliares para não perder o controle da iteração 'i', pois os vetores mudam de tamanho.
         var auxOutputs = [];
         var auxFullOutputs = [];
-        for (var i = 0; i < lastOutputs.length; i++) {
-            var inputAtual = [ lastOutputs[i] ];
+        for (var i = 0; i < fullOutputs.length; i++) {
+            var inputAtual = [ fullOutputs[i].slice(-1)[0]  ]; // Pega último elemento de full output
             for (var j = 0; j < regras.length; j++) {
                 var regra = regras[j];
                 var auxInputAtual = [];
@@ -169,31 +169,41 @@ function aplicarRegras() {
             }
 
             auxOutputs = auxOutputs.concat(inputAtual);
+            // 1 input (fullOutput[i][-1]) gerou k novas cadeias.
             for (var k = 0; k < inputAtual.length; k++) {
                 var simbolo = s > 0 ? '>' : '≈';
-                auxFullOutputs.push(fullOutputs[i].concat(' ' + simbolo + ' *[',  inputAtual[k].toString(), ']'));
+                //auxFullOutputs.push(fullOutputs[i].concat(' ' + simbolo + ' *[',  inputAtual[k].toString(), ']'));
+                auxFullOutputs.push(fullOutputs[i].concat(inputAtual[k]));
             }
         }
         lastOutputs = auxOutputs;
         fullOutputs = auxFullOutputs;
     }
 
-    // Transformar de volta
-    // MUDANÇA: devemos tranformar a penúltima sincronia, não a última...
-    var lastOutputsOrto = [];
+    //var lastOutputsOrto = [];
     _detalhes += "-- Ortografia --<br />";
-    for (var i = 0; i < lastOutputs.length; i++) {
-        lastOutputsOrto.push(transformar(_regrasFone2Orto, lastOutputs[i]));
-    }
+    //for (var i = 0; i < lastOutputs.length; i++) {
+//        lastOutputsOrto.push(transformar(_regrasFone2Orto, lastOutputs[i]));
+//    }
 
     var fullOutput = '';
     var lastOutput = '';
     for (var k = 0; k < fullOutputs.length; k++) {
-        fullOutput += fullOutputs[k] + '\n';
-        for (var i = 0; i < lastOutputsOrto[k].length; i++) {
+        //fullOutput += fullOutputs[k] + '\n';
+        fullOutput +=  '*[' +  fullOutputs[k][0].toString() + ']';
+        for (var s = 1; s < fullOutputs[k].length; s++) {
+            var simbolo = s > 1 ? '>' : '≈';
+            fullOutput += ' ' + simbolo + ' *[' +  fullOutputs[k][s].toString() + ']';
+        }
+        fullOutput += '\n';
+
+        // Transformar de volta
+        // MUDANÇA: devemos tranformar a penúltima sincronia, não a última...
+        var outputOrto = transformar(_regrasFone2Orto, fullOutputs[k].slice(-2)[0]);
+        for (var i = 0; i < outputOrto.length; i++) {
             if (i > 0)
                 lastOutput += ', ';
-            lastOutput += lastOutputsOrto[k][i].imprimir();
+            lastOutput += outputOrto[i].imprimir();
         }
         lastOutput += '\n';
     }

@@ -2,6 +2,17 @@
 
 #s̪kʷa > #s̪ka
 
+on# > onn#
+
+#kum# > #kumm#
+
+#in# > #inn#
+
+#kʷem# > #kʷemm#
+
+#rem# > #remm#
+
+
 kʷa > kʷa
 kʷa > ka
 
@@ -11,8 +22,11 @@ kʷa > ka
 
 #k{V-} > #k
 #k{V-} > #g
-#kr > #kr
-#kr > #gr
+#kr{VP} > #kr
+#kr{VP} > #gr
+#kr{VC} > #kr
+#kr{VC} > #gr
+
 
 #gʷ{VA} > #kʷ
 
@@ -30,19 +44,25 @@ aj{C} > ɛ
 #aw > aw
 #aw > ɔ
 
+$b-!i$l > $bl
 $b-!o$r > $br
 $b-!u$l > $bl
 $d-!i$k > $di$ḡ
 $d-!i$k > $dḡ
+$g-!u$l > $gl
 j-!o$r >j$r
 k-!i$t > ɟ$ḏ
 $l-!i$k > l$ḡ
 $l-!i$t > l$ḏ
 $m-!o$r > m$r
+$m-!i$l > $mi$l
+$m-!i$l > m$l
 $m-!i$t > m$ḏ
 n-!i$k > ŋ$ḡ
 $n-!i$t > $ni$t
 $n-!i$t > n$ḏ
+$p-!u$t > p$t
+r-!i$t > r$ḏ
 $t-!i$m > $tm
 $t-!i$k > $tḡ
 w-!i$t > w$ḏ
@@ -52,17 +72,22 @@ $b=!o$l > $bl
 $b=!u$l > $bu$l
 $b=!u$l > $bl
 $d=!e$k > $d$ḡ
+$g=!u$l > $ḡl
 k=!i$t > ɟ$ḏ
-l=!i$kʷ > l$ḡ
-l=!i$k > l$ḡ
+$k=!u$l > $kl
+$k=!u$l > $ḡu$l
+$l=!i$kʷ > l$ḡ
+$l=!i$k > l$ḡ
 m=!i$n > m$n
 m=!i$n > mi$n
 $m=!i$t > m$ḏ
+$m=!u$l > $mu$l
+$m=!u$l > m$l
 n=!i$m> n$m
 n=!i$k> ŋ$ḡ
+$p=!e$r >$ḇr
 $p=!o$r >$ḇr
 r=!i$k >  r$ḡ
-r-!i$t > r$ḏ
 s̪=!i$t > s̪$t
 $t=!e$r > $tr
 $t=!u$r > $tr
@@ -97,6 +122,9 @@ $tu$lam#> $ḏla#
 er# > re#
 
 m$ɸ > f$f
+m$ɸ > n$f
+
+
 m$kʷ > ŋ$k
 ŋ$kt > n$t
 
@@ -158,15 +186,15 @@ ns̪$tr > s̪$tr
 {V}$b{V} > $β
 {V}$bj > $βj
 {V}$br > $βr
+r$b > r$β
 {V}$bw > $βw
 b$b > $b
 
-{V}$kw> $ḡw
 {V}$kr> $ḡr
 {V}$k{V} > $ḡ
-k$k > $k
-
 k$s > ɟ$s
+k$s > ɟ$z
+k$k > $k
 
 {V}$c{V} > $ɟ
 {V}$cr> $ɟr
@@ -211,7 +239,8 @@ s̪$s̪e{V}> s̪$s̪j
 {V}$s̪{V} > $z̪
 w$s̪{V} > w$z̪
 
-bs̪${CD}> β$s̪
+bs̪${CD}> β
+$s̪
 b$s̪{V} > β$z̪
 
 
@@ -236,8 +265,6 @@ l$ > l$
 l$ > ł$
 ll> l$l
 
-{V}$ks{V} > ɟ$z
-
 ts > s
 #w > v
 $w{V} > $v
@@ -258,7 +285,6 @@ m$t > n$t
 m$d > n$d
 mp$t > n$t
 
-
 k$t > ɟ$t
 p$t > β$t
 p$t > $t
@@ -266,12 +292,20 @@ p$t > ɟ$t
 g$n > ɟ$ɲ
 {V}$gr > $ɣr
 
-ŋ$gʎ > ɲ$ɟʎ
+ŋ$gʎ > ŋ$ɟʎ
 gʎ > ɟʎ
 tʎ > kʎ
 
 kj > cj
-kw{VA} > k
+
+#kw{VA} > #c
+#kw{VA} > #k
+
+$kw{VA} > $g
+$kw{VC} > $gw
+$kw{VP} > $gw
+
+
 ks# > ɟs#
 
 l$l${C} > ł$
@@ -286,3 +320,14 @@ s̪=!ɪ$m > z̪$m
 
 -nw{V} > n
 k$kl > $kl
+z${CD} > s$
+s${CV} > z$
+kv > k
+#ɪ$z̪ > #in$s̪ 
+s̪$dʎ > s̪$tʎ
+kʎ > cʎ
+n$k > ŋ$k
+m$k > ŋ$k 
+$lʊ${V}> $lw
+
+$# > #

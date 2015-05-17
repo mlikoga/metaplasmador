@@ -16,22 +16,32 @@ au > aw
 oe > oj
 oë > oe
 
-nc$ > ŋ$k
-n$c > ŋ$k
-
 ch > kʰ
 c > k
-gu{V} > gʷ
-n$f > m$ɸ 
 f > ɸ
+
+m{C} > m$
+n{C} > n$
+
+n$k > ŋ$k
+n$ɸ  > m$ɸ 
 n$g > ŋ$g
+n$t# > nt#
+
+gu{V} > gʷ
+
 ph > pʰ
 {V}$ps > $ps̪
 qu{V} > kʷ
 rh > rʰ
 s > s̪
 th > tʰ
+
 x# > ks#
-x > ks
+#x > #ks
+x > k$s
+
 v > w
 z > ts
+
+ɸ$ > ɸ
