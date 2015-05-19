@@ -190,10 +190,10 @@ function aplicarRegras() {
     var lastOutput = '';
     for (var k = 0; k < fullOutputs.length; k++) {
         //fullOutput += fullOutputs[k] + '\n';
-        fullOutput +=  '*[' +  fullOutputs[k][0].toString() + ']';
+        fullOutput +=  'S<sup>0</sup> *[' +  fullOutputs[k][0].toString() + ']';
         for (var s = 1; s < fullOutputs[k].length; s++) {
             var simbolo = s > 1 ? '>' : '≈';
-            fullOutput += ' ' + simbolo + ' *[' +  fullOutputs[k][s].toString() + ']';
+            fullOutput += ' ' + simbolo + ' S<sup>' + s + '</sup> *[' +  fullOutputs[k][s].toString() + ']';
         }
         fullOutput += '\n';
 
@@ -208,8 +208,8 @@ function aplicarRegras() {
         lastOutput += '\n';
     }
 
-    $('#fulloutput').text(fullOutput);
-    $('#fulloutput').html($('#fulloutput').html().replace(/\n/g,'<br/>'));
+    //$('#fulloutput').text(fullOutput);
+    $('#fulloutput').html(fullOutput.replace(/\n/g,'<br/>'));
     $('#output').text(lastOutput);
     $('#output').html($('#output').html().replace(/\n/g,'<br/>'));
     $('#divDetalhes').html(_detalhes);
