@@ -150,7 +150,7 @@ function aplicarRegras() {
 
     for (var s = 0; s < _sincronias.length; s++) {
         console.log("------ Sincronia " + s + " ------");
-        _detalhes += "-- S" + s + " --<br/>";
+        _detalhes += "-- S<sup>" + s + "</sup> --<br/>";
 
         var regras = _sincronias[s];
         // Auxliliares para não perder o controle da iteração 'i', pois os vetores mudam de tamanho.
@@ -190,7 +190,7 @@ function aplicarRegras() {
     var lastOutput = '';
     for (var k = 0; k < fullOutputs.length; k++) {
         //fullOutput += fullOutputs[k] + '\n';
-        fullOutput +=  'S<sup>0</sup> *[' +  fullOutputs[k][0].toString() + '] ≈ *[' + fullOutputs[k][1].toString() + ']';
+        fullOutput +=  '*[' +  fullOutputs[k][0].toString() + '] ≈ S<sup>0</sup> *[' + fullOutputs[k][1].toString() + ']';
         for (var i = 2; i < fullOutputs[k].length; i++) {
             var s = i - 1;
             fullOutput += ' > S<sup>' + s + '</sup> *[' +  fullOutputs[k][i].toString() + ']';
