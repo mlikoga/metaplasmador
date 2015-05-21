@@ -137,7 +137,7 @@ function aplicarRegras() {
     var silabas = Silabas.encontrarTonica(Silabas.separar(strInput));
 
     var input = new Cadeia(silabas);
-    _detalhes += "-- Latim Cl&aacute;ssico --<br />";
+    _detalhes += "--S<sup>0</sup>: Latim Cl&aacute;ssico --<br />";
     var inputFoneticos = transformar(_regrasOrto2Fone, input);
     showInputs(input, inputFoneticos, silabas);
 
@@ -190,7 +190,7 @@ function aplicarRegras() {
     var lastOutput = '';
     for (var k = 0; k < fullOutputs.length; k++) {
         //fullOutput += fullOutputs[k] + '\n';
-        fullOutput +=  '*[' +  fullOutputs[k][0].toString() + '] ≈ S<sup>0</sup> *[' + fullOutputs[k][1].toString() + ']';
+        fullOutput +=  'S<sup>0</sup> *[' +  fullOutputs[k][0].toString() + '] ≈ *[' + fullOutputs[k][1].toString() + ']';
         for (var i = 2; i < fullOutputs[k].length; i++) {
             var s = i - 1;
             fullOutput += ' > S<sup>' + s + '</sup> *[' +  fullOutputs[k][i].toString() + ']';
