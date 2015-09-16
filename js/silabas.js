@@ -15,7 +15,7 @@ var Silabas = Silabas || {};
 
 Silabas.acentoTonico = '\u02c8';
 Silabas.regexV = new RegExp('(ae|oe|au|æ|œ|a|e|i|o|u|y|ā|ă|ē|ĕ|ī|ĭ|ō|ŏ|ū|ŭ)', 'gi');
-Silabas.regexC = new RegExp('(b|c|d|f|g|h|k|l|m|n|p|q|r|s|t|x|z)', 'gi');
+Silabas.regexC = new RegExp('(b|c|d|f|g|k|l|m|n|p|q|r|s|t|x|z)', 'gi'); // Retirei o h dessa lista, pois em EncontrarTonica, encontros como ch e ph o h não conta como consoante.
 Silabas.regexCC = new RegExp('(pl|pr|bl|br|tl|tr|dl|dr|cl|cr|gl|gr|ph|ch|th|rh|ps)', 'gi');
 Silabas.regexMacron = new RegExp('(ā|ē|ī|ō|ū)', 'gi'); // Vogais longas
 Silabas.regexBraquia = new RegExp('(ă|ĕ|ĭ|ŏ|ŭ)', 'gi'); // Vogais breves
@@ -71,6 +71,10 @@ Silabas.separar = function(input) {
     return silabas;
 }
 
+/**
+ * Input: array de string, cada um contendo uma silaba.
+ * Output: array de Silaba, uma delas com a propriedade tonica=true
+ **/
 Silabas.encontrarTonica = function(silabas) {
 
     // Transformando em objetos Silaba

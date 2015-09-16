@@ -110,6 +110,8 @@ Regra.POSTONICAIMEDIATA = '=!';
 Regra.PRETONICANAOIMEDIATA = '--';
 Regra.POSTONICANAOIMEDIATA = '==';
 
+Regra.regexV = new RegExp('(a|e|i|o|u|ë|ɛ|ï|ɪ|ö|ɔ|ʊ)', 'gi');
+
 Regra.TIPOS = {
     QUALQUER: 0,
     ATONA: 1,
@@ -176,9 +178,14 @@ Regra.prototype.aplicar = function (input) {
         strMatch = strMatch.slice(0, coreIdx + this.patternCore.length); // Corta contexto (sufixo) fora
         if (/*strOutput.length + coreIdx >= cadeiaIdx && */this.checarTonicidade(input, silabaIdx)) {
             strOutput += strMatch.replace(this.patternCore, this.destino); // realiza a substituição na string
-            if (this.variacaoSilabica != 0 && silabaIdx < silabaTonicaIdx) {
+            if (this.variacaoSilabica != 0 && silabaIdx < silabaTonicaIdx) { // Tem regras que mudma o número de sílabas
                 silabaTonicaIdx = silabaTonicaIdx + this.variacaoSilabica;
             }
+            if (this.variacaoSilabica > 0 && silabaIdx == silabaTonicaIdx) { // Caso em que há criação de novas sílabas, modificando a própria sílaba tônica
+                // TODO - está apenas deixando a tonica pra frente, necessário lógica melhor.
+                silabaTonicaIdx = silabaTonicaIdx + this.variacaoSilabica;
+            }
+
             //cadeiaIdx = strOutput.length + coreIdx; // atualiza cadeiaIdx com length do que foi mudado
             numMudancas++;
         } else {
