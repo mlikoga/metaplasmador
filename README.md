@@ -1,5 +1,9 @@
 metaplasmador
 =============
+v1.4 - 16/Set/2015
+- Atualização da regra para definição de sílaba tonica
+- Atualização do comportamento no caso de uma regra criar mais sílabas, separando a sílaba tônica.
+
 v1.3 - 16/Mai/2015
 - Corrigido bug de regras com # (agora é contexto e não mais parte do núcleo)
 - Saída ortográfica tem como origem S4 e não mais a última sincronia.
