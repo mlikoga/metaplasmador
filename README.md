@@ -1,5 +1,10 @@
 metaplasmador
 =============
+
+Os metaplasmos são processos de mudanças nos fonemas que acontecem em determinada língua. O metaplasmador permite que esses processos sejam definidos e mostra como uma língua (como latim) se transformou ao longo do tempo até os dias atuais (virando português moderno, por exemplo).
+Projeto desenvolvido em parceria com o Prof. Dr. Mário Eduardo Viaro e o NEHiLP (Núcleo de Apoio à Pesquisa em 
+Etimologia e História da Língua Portuguesa) da USP (Universidade de São Paulo). Saiba mais em: http://www.nehilp.org
+
 v1.4 - 16/Set/2015
 - Atualização da regra para definição de sílaba tonica
 - Atualização do comportamento no caso de uma regra criar mais sílabas, separando a sílaba tônica.
