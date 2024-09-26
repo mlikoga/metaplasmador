@@ -1,21 +1,47 @@
-ā > [a]
-ă > [a]
-au > [aw]
-æ > [ɛ]
-ē > [e]
-ĕ > [ɛ]
-ī > [i]
-ĭ > [e]
-j > [ɟ]
-ō > [o]
-ŏ > [ɔ]
-œ > [e]
-ū > [u]
-ŭ > [o]
-v > [v]
-d > [d]
-dr > [dɾ]
-dd > [d]
-di > [dj]
-du > [dv]
-s > [s̪]
+ā > a:
+ă > a
+ē > e:
+ĕ > e
+ī > i:
+ĭ > i
+ō > o:
+ŏ > o
+ū > u:
+ŭ > u
+
+æ > aj
+ae > aj
+au > aw
+œ > oj
+oe > oj
+oë > oe
+
+ch > kʰ
+c > k
+f > ɸ
+
+m{C} > m$
+n{C} > n$
+
+n$k > ŋ$k
+n$ɸ  > m$ɸ 
+n$g > ŋ$g
+n$t# > nt#
+
+gu{V} > gʷ
+
+ph > pʰ
+{V}$ps > $ps̪
+qu{V} > kʷ
+rh > rʰ
+s > s̪
+th > tʰ
+
+x# > ks#
+#x > #ks
+x > k$s
+
+v > w
+z > ts
+
+ɸ$ > ɸ

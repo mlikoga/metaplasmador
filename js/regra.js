@@ -1,102 +1,224 @@
-// Classe Cadeia
-function Cadeia(str) {
-    this.strOriginal = str;
-    this.str = str;
-    this.index = 0;
-}
-
-Cadeia.prototype.toString = function() {
-    return this.str;
-};
-
 // Classe Regra
 function Regra(origem, destino) {
+
+    // Inicialização dos mebros da classe
     this.origem = origem;
-    this.destino = destino;
+    this.patternCore = '';
+    this.tonicidade = Regra.TIPOS.QUALQUER;
+    // Verifica se origem tem mais símbolos $ que destino. Se sim, a regra diminui o múmero de sílabas.
+    var findSilabaChar = new RegExp('\\' + Regra.SILABA_CHAR,'g');
+    this.variacaoSilabica =  (destino.match(findSilabaChar) || []).length - (origem.match(findSilabaChar) || []).length;
 
-    var patternPrefix = '';
-    var patternSuffix = '';
-    var origemAux = this.origem;
+    var pattern = '';
 
-    // Simbolo #
-    if (origemAux[0] == Regra.EMPTY_CHAR) {
-        origemAux = origemAux.substr(1);
-        patternPrefix = '^' + patternPrefix;
-    }
-    if (origemAux[origemAux.length - 1] == Regra.EMPTY_CHAR) {
-        origemAux = origemAux.substr(0, origemAux.length - 1);
-        patternSuffix = patternSuffix + '$';
-    }
+    // Parse da regra
+    for (var i = 0; i < this.origem.length; i++) {
+        var char = this.origem[i];
 
-    // Conjuntos
-    if (typeof _conjuntos !== 'undefined') {
-        var cjIdx = origemAux.search(Regra.CJ_START);
-        while (cjIdx >= 0) {
-            var cjIdx2 = origemAux.search(Regra.CJ_END);
-            var cjNome = origemAux.slice(cjIdx + 1, cjIdx2);
-            var cj = _conjuntos[cjNome];
-            var cjRegex = '' + cj;
-            cjRegex = cjRegex.replace(new RegExp(',', 'g'), '');
-            origemAux = origemAux.cut(cjIdx, cjIdx2+1);
+        switch(char) {
+            // Conjuntos
+            case Regra.CJ_START:
+                if (typeof _conjuntos !== 'undefined') {
+                    var cjIdx = i;
+                    var cjIdx2 = cjIdx + this.origem.substr(cjIdx).search(Regra.CJ_END);
+                    var cjNome = this.origem.slice(cjIdx + 1, cjIdx2);
+                    var cj = _conjuntos[cjNome];
+                    var cjRegex = '' + cj;
+                    cjRegex = cjRegex.replace(new RegExp(',', 'g'), '');
+                    pattern += '[' + cjRegex + ']';
+                    i = cjIdx2; // Avança i
+                }
+                break;
+            // Tonicidade
+            case Regra.ATONA:
+                this.tonicidade = Regra.TIPOS.ATONA;
+                break;
+            case Regra.TONICA:
+            case Regra.TONICA2:
+                this.tonicidade = Regra.TIPOS.TONICA;
+                break;
+            case Regra.PRETONICA:
+                if (i+1 < this.origem.length) {
+                    var nextChar = this.origem[i+1];
+                    if (nextChar == Regra.IMEDIATA) {
+                        this.tonicidade = Regra.TIPOS.PRETONICAIMEDIATA;
+                        i = i + 1;
+                    } else if (nextChar == Regra.PRETONICA) {
+                        this.tonicidade = Regra.TIPOS.PRETONICANAOIMEDIATA;
+                        i = i + 1;
+                    } else {
+                      this.tonicidade = Regra.TIPOS.PRETONICA;
+                    }
 
-            if (cjIdx == 0) { // Conjunto está antes
-                patternPrefix += '[' + cjRegex + ']';
-            } else {
-                patternSuffix += '[' + cjRegex + ']';
-            }
-            cjIdx = origemAux.search(Regra.CJ_START);
+                } else {
+                    this.tonicidade = Regra.TIPOS.PRETONICA;
+                }
+                break;
+            case Regra.POSTONICA:
+                if (i+1 < this.origem.length) {
+                    var nextChar = this.origem[i+1];
+                    if (nextChar == Regra.IMEDIATA) {
+                        this.tonicidade = Regra.TIPOS.POSTONICAIMEDIATA;
+                        i = i + 1;
+                    } else if (nextChar == Regra.POSTONICA) {
+                        this.tonicidade = Regra.TIPOS.POSTONICANAOIMEDIATA;
+                        i = i + 1;
+                    } else {
+                        this.tonicidade = Regra.TIPOS.POSTONICA;
+                    }
+                } else {
+                    this.tonicidade = Regra.TIPOS.POSTONICA;
+                }
+                break;
+            case Regra.ANY_QTY_CHAR:
+            case Regra.ONE_MORE_CHAR:
+                pattern += char;
+                break;
+            case Regra.SILABA_CHAR:
+                pattern += Cadeia.SILABA_CHAR; // Trocar caracter pq $ dá probblema na regex
+                this.patternCore += Cadeia.SILABA_CHAR;
+                break;
+            case Regra.EMPTY_CHAR:
+                pattern += char;
+                break;
+            default:
+                pattern += char;
+                this.patternCore += char;
         }
     }
 
-    // O que sobrou da origem é o core
-    this.patternCore = origemAux;
-    this.regex = new RegExp(patternPrefix + this.patternCore + patternSuffix);
+    this.regex = new RegExp(pattern, 'i');
+    // Destino
+    this.destino = destino.replace(findSilabaChar, Cadeia.SILABA_CHAR); // Troca o símbolo de separação de sílabas
+    this.destino = this.destino.replace(Regra.EMPTY_CHAR, ''); // Limpa caracteres não permitidos do destino
 }
 
 Regra.EMPTY_CHAR = '#';
+Regra.SILABA_CHAR = '$';
 Regra.CJ_START = '\{';
 Regra.CJ_END   = '\}';
+Regra.ANY_QTY_CHAR = '*';
+Regra.ONE_MORE_CHAR = '+';
+Regra.TONICA = '\u02c8';
+Regra.TONICA2 = '\'';
+Regra.ATONA = 'º';
+Regra.PRETONICA = '-';
+Regra.POSTONICA = '=';
+Regra.IMEDIATA = '!';
+Regra.PRETONICAIMEDIATA = '-!';
+Regra.POSTONICAIMEDIATA = '=!';
+Regra.PRETONICANAOIMEDIATA = '--';
+Regra.POSTONICANAOIMEDIATA = '==';
 
-Regra.prototype.verificar = function (input) {
-    var auxInput = input.strOriginal;
+Regra.regexV = new RegExp('(a|e|i|o|u|ë|ɛ|ï|ɪ|ö|ɔ|ʊ)', 'gi');
 
-    var regexIdx = auxInput.search(this.regex);
-    if (regexIdx >= 0) {
-        var match = auxInput.match(this.regex)[0];
-        var coreIdx = match.search(this.patternCore);
-        if (regexIdx + coreIdx == input.index) {
-            return true;
-        }
+Regra.TIPOS = {
+    QUALQUER: 0,
+    ATONA: 1,
+    PRETONICA: 2,
+    POSTONICA: 3,
+    PRETONICAIMEDIATA: 4,
+    POSTONICAIMEDIATA: 5,
+    PRETONICANAOIMEDIATA: 6,
+    POSTONICANAOIMEDIATA: 7
+}
+
+Regra.prototype.checarTonicidade = function (input, silabaIdx) {
+
+    var ehAplicavel = false;
+    switch(this.tonicidade) {
+        case Regra.TIPOS.QUALQUER:
+            ehAplicavel = true;
+            break;
+        case Regra.TIPOS.ATONA:
+            ehAplicavel = (silabaIdx != input.silabaTonicaIdx);
+            break;
+        case Regra.TIPOS.TONICA:
+            ehAplicavel = (silabaIdx == input.silabaTonicaIdx);
+            break;
+        case Regra.TIPOS.PRETONICA:
+            ehAplicavel = (silabaIdx < input.silabaTonicaIdx);
+            break;
+        case Regra.TIPOS.POSTONICA:
+            ehAplicavel = (silabaIdx > input.silabaTonicaIdx);
+            break;
+        case Regra.TIPOS.PRETONICAIMEDIATA:
+            ehAplicavel = (silabaIdx + 1 == input.silabaTonicaIdx);
+            break;
+        case Regra.TIPOS.POSTONICAIMEDIATA:
+            ehAplicavel = (silabaIdx - 1 == input.silabaTonicaIdx);
+            break;
+        case Regra.TIPOS.PRETONICANAOIMEDIATA:
+            ehAplicavel = (silabaIdx + 1 < input.silabaTonicaIdx);
+            break;
+        case Regra.TIPOS.POSTONICANAOIMEDIATA:
+            ehAplicavel = (silabaIdx - 1 > input.silabaTonicaIdx);
+            break;
+        default:
+            ehAplicavel = true;
     }
-    return false;
+
+    return ehAplicavel;
 }
 
 Regra.prototype.aplicar = function (input) {
 
     // Substituição
+    var inputLeft = input.str; // input a ser lido
+    var strOutput ='';
     var regexIdx = input.str.search(this.regex);
-    if (regexIdx >= 0) { // Verifica se essa regra se aplica ou não
-        var inputLeft = input.str; // input a ser lido
-        var output = new Cadeia('');
-        while (regexIdx >= 0) {
-            output.str += inputLeft.substring(0, regexIdx); // output recebe inicio do input
-            var match = inputLeft.match(this.regex)[0]; // pega trecho do input que interessa
-            match = match.slice(0, match.search(this.patternCore) + this.patternCore.length); // Corta contexto (sufixo) fora
-            output.str += match.replace(this.patternCore, this.destino); // realiza a substituição
-            inputLeft = inputLeft.substr(regexIdx + match.length); // atualiza input a ser lido
-            regexIdx = inputLeft.search(this.regex); // procura se existem mais aplicações para a regra
+    var numMudancas = 0;
+    var silabaTonicaIdx = input.silabaTonicaIdx;
+    //var cadeiaIdx = input.index;
+    while (regexIdx >= 0 && numMudancas < input.str.length) { // Verifica se essa regra se aplica ou não
+        strOutput += inputLeft.substring(0, regexIdx); // output recebe inicio do input que não foi modificado
+        var strMatch = inputLeft.match(this.regex)[0]; // pega trecho do input que interessa
+        var coreIdx = strMatch.search(this.patternCore); // pega indice do core (ATENCAO: aqui dá erro se prefixo contiver o core)
+        var silabaIdx = input.encontrarSilabaIdx(strOutput.length + coreIdx);
+        strMatch = strMatch.slice(0, coreIdx + this.patternCore.length); // Corta contexto (sufixo) fora
+        if (/*strOutput.length + coreIdx >= cadeiaIdx && */this.checarTonicidade(input, silabaIdx)) {
+            strOutput += strMatch.replace(this.patternCore, this.destino); // realiza a substituição na string
+            if (this.variacaoSilabica != 0 && silabaIdx < silabaTonicaIdx) { // Tem regras que mudma o número de sílabas
+                silabaTonicaIdx = silabaTonicaIdx + this.variacaoSilabica;
+            }
+            if (this.variacaoSilabica > 0 && silabaIdx == silabaTonicaIdx) { // Caso em que há criação de novas sílabas, modificando a própria sílaba tônica
+                // TODO - está apenas deixando a tonica pra frente, necessário lógica melhor.
+                silabaTonicaIdx = silabaTonicaIdx + this.variacaoSilabica;
+            }
+
+            //cadeiaIdx = strOutput.length + coreIdx; // atualiza cadeiaIdx com length do que foi mudado
+            numMudancas++;
+        } else {
+            strOutput += strMatch; // Não realiza substituição.
         }
-        output.str += inputLeft; // output recebe restante do input
-        console.log(this + ": " + output);
-        return output;
+        inputLeft = inputLeft.substr(regexIdx + strMatch.length); // atualiza input a ser lido
+        regexIdx = inputLeft.search(this.regex); // procura se existem mais aplicações para a regra
     }
-    return input;
+    if (numMudancas == input.str.length) {
+        console.error("LOOP INFINITO!! Regra: " + this.toString() + " Input: " + input);
+    }
+    strOutput += inputLeft; // output recebe restante do input
+
+    var output = new Cadeia();
+    output.str = strOutput;
+    output.silabaTonicaIdx = silabaTonicaIdx;
+
+    if (numMudancas > 0) {
+        console.log(this + "\t" + output.toFullString());
+        if (typeof _detalhes !== 'undefined') {
+            _detalhes += input.toFullString() + " > " + output.toFullString() + " (" + this + ")<br/>";
+        }
+    }
+    return output;
+
 };
 
+// Override
 Regra.prototype.toString = function() {
     return this.origem + " > " + this.destino;
 };
 
+// Corta trecho de string. i0 inclusive até i1 exclusivo.
 String.prototype.cut= function(i0, i1) {
     return this.substring(0, i0)+this.substring(i1);
 };

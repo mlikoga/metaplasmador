@@ -11,8 +11,13 @@ RegraAmbigua.prototype.aplicar = function (input) {
         outputs[i] = (this.regras[i].aplicar(input));
     }
     // Elimina duplicatas
-    var uniqueOutputs = outputs.filter(function(item, pos) {
-        return outputs.indexOf(item) == pos;
+    var uniqueOutputs = outputs.filter(function(item, pos, array) {
+        for (var i = pos + 1; i < array.length; i++) {
+            if (item.equals(array[i])) {
+                return false;
+            }
+        }
+        return true;
     });
 
     return uniqueOutputs.length > 1 ? uniqueOutputs : uniqueOutputs[0];

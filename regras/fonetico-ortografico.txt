@@ -1,0 +1,64 @@
+﻿ɐ̃j > ãe
+ɐ̃m${CB} > am
+ɐ̃n${C} > an
+ɐ̃# > am
+ɐ̃ > an
+
+ẽ${CB} > em
+ẽn${C} > en
+ẽ# > em
+ẽ > en
+
+ĩ${CB} > im
+ĩn${C} > in
+ĩ# > im
+ĩ > in
+
+õj{C} > õe
+õ${CB} > om
+õn${C} > on
+õ# > ão
+õ > on
+
+ũ${CB} > um
+ũn${C} > un
+ũ# > um
+ũ > un
+
+j > i
+w > u
+
+tʃ > ch
+ʃ > x
+
+dʒ > g
+ʒ > j
+
+k{VA} > qu
+k{VP} > c
+k{VC} > c
+
+g{VA} > gu
+g{VP} > g
+g{VC} > g
+
+ɛ > e
+
+ɔ > o
+
+s̪ > s
+
+ŋ > n
+
+ɾ > r
+
+ts{VA} > c
+ts{VP} > ç
+ts{VC} > ç
+
+#z̪ > z
+{V}$z̪ > s
+z̪# > z
+
+ʎ > lh
+ɲ > nh

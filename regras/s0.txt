@@ -1,9 +1,333 @@
-i > e
-i > é
-u > o
-t > d
-m# >
-ph{V} > f
-ph{V} > ph
-{V}s > z
-{V}ll{V} > l
+﻿i${V}>j
+
+#s̪kʷa > #s̪ka
+
+on# > onn#
+
+#kum# > #kumm#
+
+#in# > #inn#
+
+#kʷem# > #kʷemm#
+
+#rem# > #remm#
+
+
+kʷa > kʷa
+kʷa > ka
+
+#kʷi$ri{C} > #kri:$
+
+#kʷi$ri${C} > #kri:$
+
+#k{V-} > #k
+#k{V-} > #g
+#kr{VP} > #kr
+#kr{VP} > #gr
+#kr{VC} > #kr
+#kr{VC} > #gr
+
+
+#gʷ{VA} > #kʷ
+
+pʰ  > p
+pʰ  > f
+rʰ > r
+kʰ > k
+tʰ > t
+
+aj$ > ɛ$
+aj{C} > ɛ
+
+#aw$g > #a$g
+#aws̪$k > #as̪$k
+#aw > aw
+#aw > ɔ
+
+$b-!i$l > $bl
+$b-!o$r > $br
+$b-!u$l > $bl
+$d-!i$k > $di$ḡ
+$d-!i$k > $dḡ
+$g-!u$l > $gl
+j-!o$r >j$r
+k-!i$t > ɟ$ḏ
+$l-!i$k > l$ḡ
+$l-!i$t > l$ḏ
+$m-!o$r > m$r
+$m-!i$l > $mi$l
+$m-!i$l > m$l
+$m-!i$t > m$ḏ
+n-!i$k > ŋ$ḡ
+$n-!i$t > $ni$t
+$n-!i$t > n$ḏ
+$p-!u$t > p$t
+r-!i$t > r$ḏ
+$t-!i$m > $tm
+$t-!i$k > $tḡ
+w-!i$t > w$ḏ
+
+$b=!i$l > $bl
+$b=!o$l > $bl
+$b=!u$l > $bu$l
+$b=!u$l > $bl
+$d=!e$k > $d$ḡ
+$g=!u$l > $ḡl
+k=!i$t > ɟ$ḏ
+$k=!u$l > $kl
+$k=!u$l > $ḡu$l
+$l=!i$kʷ > l$ḡ
+$l=!i$k > l$ḡ
+m=!i$n > m$n
+m=!i$n > mi$n
+$m=!i$t > m$ḏ
+$m=!u$l > $mu$l
+$m=!u$l > m$l
+n=!i$m> n$m
+n=!i$k> ŋ$ḡ
+$p=!e$r >$ḇr
+$p=!o$r >$ḇr
+r=!i$k >  r$ḡ
+s̪=!i$t > s̪$t
+$t=!e$r > $tr
+$t=!u$r > $tr
+
+a:$wis̪${C} > a:$s̪
+e:$wis̪${C} > e:$s̪
+i:$wis̪${C} > i:$s̪
+
+a:$we:$runt# > a:$runt#
+e:$we:$runt# > e:$runt#
+i:$we:$runt# > i:$runt#
+
+a:$wit# > aw#
+a:$wi:# > a$i#
+a:$wi# > a$i#
+e:$wit#> ew#
+i:$wit#> iw#
+
+$pu$lum#>$pu$lu#
+$pu$lum#>$ḇlu#
+$pu$lam#> $pu$la#
+$pu$lam#> $ḇla#
+$ku$lum#> $kułu#
+$ku$lum#> $ḡlu#
+$ku$lam#> $ku$ła#
+$ku$lam#> $ḡla#
+$gu$lam#> $ḡla#
+$gu$lum#> $ḡlu#
+$tu$lum#> $ḏlu#
+$tu$lam#> $ḏla#
+
+er# > re#
+
+m$ɸ > f$f
+m$ɸ > n$f
+
+
+m$kʷ > ŋ$k
+ŋ$kt > n$t
+
+ŋ$g{VA} > ɲ$ɟ
+
+kʷ > kw
+gʷ > gw
+#gl > #l
+
+b# > #
+k# > #
+d# > #
+m#> #
+n# > #
+t#> #
+
+a: > a
+oj$ > e:$
+oj{C} > e:
+
+en$s̪ > e:$s̪
+e: > ë
+e >  ɛ
+ɛw > ew
+ºɛ > ë
+
+i: > ï
+i  > ɪ
+ɪw > iw
+
+o: > ö
+o > ɔ
+ºɔ > ö
+
+u: > ü
+u > ʊ
+
+y > i
+y > ɪ 
+
+ë > e
+ï > i
+ö > o
+ü > u
+
+ºi${V} > j
+{V}$ºɪ${V} > 
+ºɪ${V} > j
+{V}$te${V}>t$tj
+ºe${V} > j
+ºu${V} > w
+ºʊ${V} > w
+wj>vj
+
+{V}n$s̪ > $s̪
+
+ns̪$tr > s̪$tr
+
+{V}$b{V} > $β
+{V}$bj > $βj
+{V}$br > $βr
+r$b > r$β
+{V}$bw > $βw
+b$b > $b
+
+{V}$kr> $ḡr
+{V}$k{V} > $ḡ
+k$s > ɟ$s
+k$s > ɟ$z
+k$k > $k
+
+{V}$c{V} > $ɟ
+{V}$cr> $ɟr
+k$c > $c
+
+{V}$d{V} > $ð
+w$d > w$ð
+{V}$dj > $ðj
+{V}$dr > $ðr
+d$d > $d
+
+ɸ$ɸ > f$f
+ɸ > f
+{V}$f{V} > $v
+{V}$fr > $vr
+f$f > $f
+
+{V}$g{VP} > $ɣ
+{V}$g{VC} > $ɣ
+{V}$gr > $ɣr
+g$ɟ > $ɟ
+g$g > $g
+
+{V}$ɟ{V} >
+
+m$m > $m
+
+{V}$p{V} > $ḇ
+{V}$pl > $ḇl
+{V}$pj > $ḇj
+w$p{V} > w$ḇ
+{V}$pw > $ḇw
+{V}$pr > $ḇr
+p$p > $p
+
+ps̪ > s̪$s̪
+r$s̪ >s̪$s̪
+
+s̪$s̪e{V}> s̪$s̪j
+{V}$s̪j > $z̪j
+
+{V}$s̪{V} > $z̪
+w$s̪{V} > w$z̪
+
+bs̪${CD}> β
+$s̪
+b$s̪{V} > β$z̪
+
+
+s̪$s̪ > $s̪
+
+s̪$k{VA} > $sɟ
+
+{V}$t{V} > $ḏ
+{V}$tj > $ḏj
+{V}$tw > $ḏw
+{V}$tr > $ḏr
+t$t > $t
+
+g{VA} > ɟ
+h >
+k{VA} > c
+
+l$l > ll
+l# > l#
+l# > ł#
+l$ > l$
+l$ > ł$
+ll> l$l
+
+ts > s
+#w > v
+$w{V} > $v
+
+ḇ > b
+ḏ > d
+ḡ{VA} > ɟ
+ḡ > g
+
+e$re${C}> er$
+
+#s̪{C} > #es̪$
+
+{C}l > ʎ
+{C}l > l 
+
+m$t > n$t
+m$d > n$d
+mp$t > n$t
+
+k$t > ɟ$t
+p$t > β$t
+p$t > $t
+p$t > ɟ$t
+g$n > ɟ$ɲ
+{V}$gr > $ɣr
+
+ŋ$gʎ > ŋ$ɟʎ
+gʎ > ɟʎ
+tʎ > kʎ
+
+kj > cj
+
+#kw{VA} > #c
+#kw{VA} > #k
+
+$kw{VA} > $g
+$kw{VC} > $gw
+$kw{VP} > $gw
+
+
+ks# > ɟs#
+
+l$l${C} > ł$
+lł${C} > ł$
+aj > ɛ
+
+$j >$j
+#j > #ɟ
+
+l-!i$n > ł$n
+s̪=!ɪ$m > z̪$m
+
+-nw{V} > n
+k$kl > $kl
+z${CD} > s$
+s${CV} > z$
+kv > k
+#ɪ$z̪ > #in$s̪ 
+s̪$dʎ > s̪$tʎ
+kʎ > cʎ
+n$k > ŋ$k
+m$k > ŋ$k 
+$lʊ${V}> $lw
+
+$# > #

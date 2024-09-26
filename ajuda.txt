@@ -1,0 +1,43 @@
+O Metaplasmador é um programa que simula, a partir de um input em latim, como seriam as possíveis soluções, caso esse input sobrevivesse como uma palavra da sincronia atual.
+Para tal, é preciso discriminar vogais longas e breves (sobretudo a penúltima) do input.
+Ao clicar em Transformar, o programa fornece um separação silábica com indicação do acento tônico e uma suposta transcrição fonética, que é obtida mediante regras presentes no campo Ortográfico > Fonético.
+
+A partir dessa transformações, geram-se as seguintes etapas:
+
+s0  ?  Do latim comum à formação do latim vulgar (entre o século I a.C. e o século V d.C.);
+s1  ?  Do latim vulgar à formação do ibero-românico (entre o século III a. C. e o século V d.C.);
+s2  ?  Do iberorromânico à formação do ibero-românico do noroeste peninsular (entre o século VI e o IX);
+s3  ?  Do ibero-românico do noroeste peninsular à formação do galego-português (entre o século X  e o século XIII);
+s4  ?  Do galego-português à formação do português antigo (entre o século XIV e o XVII);
+s5  ?  Do português antigo à formação do português moderno (entre o século XVIII e o XXI)
+
+As regras de cada sincronia estão descritas na parte inferior da tela e seguem a seguinte estrutura:
+
+input > output
+
+O input equivale à sincronia anterior e o output é a sincronia em questão.
+
+O input pode ser um som ou uma sequência de sons seguido ou não de restrições (portanto, há regras mais gerais e regras mais específicas):
+
+i > e significa que todo [i] se transforma em [e]
+mn > nn significa que a sequência [mn] se transforma em [nn]
+l# > l significa que um [l] em posição final absoluta se transforma em [l]
+#s > es significa que um [s] inicial absoluto se transforma em [es]
+$k > g significa que um [k] inicial não-absoluto se transforma em [g]
+e > i significa que qualquer [e] se transforma em [i]
+'e > i significa que um [e] tônico se transforma em [i]
+ºe > i significa que um [e] átono se transforma em [i]
+-e > i significa que um [e] átono pretônico se transforma em [i]
+=e > i significa que um [e] átono postônico se transforma em [i]
+-!e > i significa que um [e] átono pretônico imediato se transforma em [i]
+=!e > i significa que um [e] átono postônico imediato se transforma em [i]
+--e >i significa que um [e] átono pretônico não-imediato se transforma em [i]
+==e > i significa que um [e] átono postônico não-imediato se transforma em [i]
+
+As restrições podem envolver também conjuntos que são definidos no campo Conjuntos
+
+{V}$t{V} > d significa que um [t], na posição inicial antecedido e seguido de vogais se torna um [d]
+'t{V} > d significa que um [t] numa sílaba tônica se transforma em [d]
+ºe{C}*{VA} > i significa que um [e] átono seguido de 0 ou n consoantes e de uma vogal anterior se transforma em [i]
+
+Em "Saída", ao final, há uma série de possibilidades ortográficas. As regras estão em apresentadas em Fonético > Ortográfico
